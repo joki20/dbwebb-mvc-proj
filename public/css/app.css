@@ -1,0 +1,97 @@
+body {
+    overflow-y: scroll;
+    width: 800px;
+    margin: 8px auto;
+    padding-left: 1em;
+    border-left: 1px solid #ccc;
+}
+
+main {
+    min-height: 20em;
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    min-height: 4em;
+    text-align: center;
+}
+
+/* card styling */
+.card {
+  height: 8.85em;
+  width: 6.4em;
+  background-color: #fff;
+  border: 2px solid #695d39;
+  border-radius: .5em;                       /* omitted -moz- and -webkit- hacks */
+  box-shadow: -.25em .25em .5em -.25em #000; /* omitted -moz- and -webkit- hacks */
+  font-family: 'Times', serif;
+  line-height: 1em;
+  padding-top: .25em;
+  padding-left: .1em;
+  letter-spacing: -.2em;
+  position: absolute;
+}
+
+.card {
+  /* omitted previous styling */
+  background: #fff url('../images/card-set.png') no-repeat;
+  background-size: 1300% 400%;
+}
+
+/* CARDS */
+/* hearts */
+.rank2H {color: #890000; background-position: -6.5em -27.3em; }
+.rank3H {color: #890000; background-position: -13em -27.3em; }
+.rank4H {color: #890000; background-position: -19.5em -27.3em; }
+.rank5H {color: #890000; background-position: -26em -27.3em; }
+.rank6H {color: #890000; background-position: -32.5em -27.3em; }
+.rank7H {color: #890000; background-position: -39em -27.3em; }
+.rank8H {color: #890000; background-position: -45.5em -27.3em; }
+.rank9H {color: #890000; background-position: -52em -27.3em; }
+.rank10H {color: #890000; background-position: -58.5em -27.3em; }
+.rankJH {color: #890000; background-position: -78em -27.3em; }
+.rankQH {color: #890000; background-position: -71.5em -27.3em; }
+.rankKH {color: #890000; background-position: -65em -27.3em; }
+.rankAH {color: #890000; background-position: 0 -27.3em; }
+/* spades */
+.rank2S {color: #000; background-position: -6.5em -18.2em; }
+.rank3S {color: #000; background-position: -13em -18.2em; }
+.rank4S {color: #000; background-position: -19.5em -18.2em; }
+.rank5S {color: #000; background-position: -26em -18.2em; }
+.rank6S {color: #000; background-position: -32.5em -18.2em; }
+.rank7S {color: #000; background-position: -39em -18.2em; }
+.rank8S {color: #000; background-position: -45.5em -18.2em; }
+.rank9S {color: #000; background-position: -52em -18.2em; }
+.rank10S {color: #000; background-position: -58.5em -18.2em; }
+.rankJS {color: #000; background-position: -78em -18.2em; }
+.rankQS {color: #000; background-position: -71.5em -18.2em; }
+.rankKS {color: #000; background-position: -65em -18.2em; }
+.rankAS {color: #000; background-position: 0 -18.2em; }
+/* diamonds */
+.rank2D {color: #890000; background-position: -6.5em -9.1em; }
+.rank3D {color: #890000; background-position: -13em -9.1em; }
+.rank4D {color: #890000; background-position: -19.5em -9.1em; }
+.rank5D {color: #890000; background-position: -26em -9.1em; }
+.rank6D {color: #890000; background-position: -32.5em -9.1em; }
+.rank7D {color: #890000; background-position: -39em -9.1em; }
+.rank8D {color: #890000; background-position: -45.5em -9.1em; }
+.rank9D {color: #890000; background-position: -52em -9.1em; }
+.rank10D {color: #890000; background-position: -58.5em -9.1em; }
+.rankJD {color: #890000; background-position: -78em -9.1em; }
+.rankQD {color: #890000; background-position: -71.5em -9.1em; }
+.rankJD {color: #890000; background-position: -65em -9.1em; }
+.rankAD {color: #890000; background-position: 0 -9.1em; }
+/* clubs */
+.rank2C {color: #000; background-position: -6.5em 0; }
+.rank3C {color: #000; background-position: -13em 0; }
+.rank4C {color: #000; background-position: -19.5em 0; }
+.rank5C {color: #000; background-position: -26em 0; }
+.rank6C {color: #000; background-position: -32.5em 0; }
+.rank7C {color: #000; background-position: -39em 0; }
+.rank8C {color: #000; background-position: -45.5em 0; }
+.rank9C {color: #000; background-position: -52em 0; }
+.rank10C {color: #000; background-position: -58.5em 0; }
+.rankJC {color: #000; background-position: -78em 0;  }
+.rankQC {color: #000; background-position: -71.5em 0; }
+.rankKC {color: #000; background-position: -65em 0; }
+.rankAC {color: #000; background-position: 0 0; }

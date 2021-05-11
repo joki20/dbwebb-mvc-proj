@@ -1,0 +1,59 @@
+PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
+
+..........<form method="POST" id="form-roll">
+                    <input
+                        type="submit"
+                        name="status"
+                        value="Starta spelet"
+                        id="form-roll"
+                        >
+                </form>
+                <form method="POST" id="form-roll">
+                    <input
+                        type="submit"
+                        name="status"
+                        value="Starta spelet"
+                        id="form-roll"
+                        >
+                </form>
+                <form method="POST" id="form-roll">
+                    <input
+                        type="submit"
+                        name="status"
+                        value="Starta spelet"
+                        id="form-roll"
+                        >
+                </form>
+                3<p>SUMMA: 3</p>6<p>SUMMA: 9</p><form method="POST" id="form-roll">
+                    <input
+                        type="submit"
+                        name="status"
+                        value="Starta spelet"
+                        id="form-roll"
+                        >
+                </form>
+                <form method="POST" id="form-roll">
+                    <input
+                        type="submit"
+                        name="status"
+                        value="Starta spelet"
+                        id="form-roll"
+                        >
+                </form>
+                <form method="POST" id="form-roll">
+                    <input
+                        type="submit"
+                        name="status"
+                        value="Starta spelet"
+                        id="form-roll"
+                        >
+                </form>
+                ..<p>SUMMA: 0</p>.....                                                 17 / 17 (100%)
+
+Time: 00:01.900, Memory: 36.00 MB
+
+OK (17 tests, 40 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:00.048]
+
+Generating code coverage report in HTML format ... done [00:00.673]
