@@ -22,17 +22,20 @@ class CardHand
 
     public function hand() {
         $hand = [
-            $this->drawCard(),
-            $this->drawCard(),
-            $this->drawCard(),
-            $this->drawCard(),
-            $this->drawCard()
+            $this->drawCard(), // 0
+            $this->drawCard(), // 1
+            $this->drawCard(), // 2
+            $this->drawCard(), // 3
+            $this->drawCard()  // 4
         ]
 
         return $hand;
     }
 
-    public function discard(cards) { // i.e card [0,3,4]
-        $this->hand[i] = $this->drawCard();
+    public function replaceCards(cards) { // i.e [0,3,4]
+        foreach (cards as $card) {
+            $drawnCard = array_shift($this->deck); // top card
+            $this->hand[i] = $drawnCard;
+        }
     }
 }
