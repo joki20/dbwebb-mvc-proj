@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
-use Joki20\Http\Controllers\Deck;
+use Joki20\Http\Controllers\Card;
 
 /**
  * Class CardHand.
@@ -32,10 +32,20 @@ class CardHand
         return $hand;
     }
 
-    public function replaceCards(cards) { // i.e [0,3,4]
+    public function replaceCards() { // i.e [0,3,4]
         foreach (cards as $card) {
             $drawnCard = array_shift($this->deck); // top card
             $this->hand[i] = $drawnCard;
         }
     }
+
+//     public function handSuits() {
+//         foreach ($hand as $card) {
+//              = 'How are you?';
+//
+// if (strpos($a, 'are') !== false) {
+//     echo 'true';
+// }
+//         }
+//     }
 }

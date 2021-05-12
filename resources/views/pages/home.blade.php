@@ -19,7 +19,7 @@ use Joki20\Http\Controllers\Card; // use Deck class
 <p>
     The result of each game will be saved in a highscore list. You will be able to see which player won the most number of games, and also the result of the latest game.
 </p>
-<div class="card rankJH">Q <br/> &hearts;</div>
+<div class="card rank12H">Q <br/> &hearts;</div>
 <?php
 $card = new Card();
 $card->shuffleDeck();

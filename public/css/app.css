@@ -38,60 +38,81 @@ footer {
   background-size: 1300% 400%;
 }
 
+/* SUITS */
+.C { background-position-y: 0;       color: #000; }
+.D { background-position-y: -9.1em; color: #890000; }
+.S { background-position-y: -18.2em; color: #000; }
+.H { background-position-y: -27.3em;    color: #890000; }
+
+/* RANKS */
+.rank02  { background-position-x: -6.5em; }
+.rank03  { background-position-x: -13em; }
+.rank04  { background-position-x: -19.5em; }
+.rank05  { background-position-x: -26em; }
+.rank06  { background-position-x: -32.5em; }
+.rank07  { background-position-x: -39em; }
+.rank08  { background-position-x: -45.5em; }
+.rank09  { background-position-x: -52em; }
+.rank10 { background-position-x: -58.5em;}
+.rank11  { background-position-x: -78em; }
+.rank12  { background-position-x: -71.5em; }
+.rank13  { background-position-x: -65em; }
+.rank14  { background-position-x: 0; }
+
 /* CARDS */
 /* hearts */
-.rank2H {color: #890000; background-position: -6.5em -27.3em; }
-.rank3H {color: #890000; background-position: -13em -27.3em; }
-.rank4H {color: #890000; background-position: -19.5em -27.3em; }
-.rank5H {color: #890000; background-position: -26em -27.3em; }
-.rank6H {color: #890000; background-position: -32.5em -27.3em; }
-.rank7H {color: #890000; background-position: -39em -27.3em; }
-.rank8H {color: #890000; background-position: -45.5em -27.3em; }
-.rank9H {color: #890000; background-position: -52em -27.3em; }
+.rank02H {color: #890000; background-position: -6.5em -27.3em; }
+.rank03H {color: #890000; background-position: -13em -27.3em; }
+.rank04H {color: #890000; background-position: -19.5em -27.3em; }
+.rank05H {color: #890000; background-position: -26em -27.3em; }
+.rank06H {color: #890000; background-position: -32.5em -27.3em; }
+.rank07H {color: #890000; background-position: -39em -27.3em; }
+.rank08H {color: #890000; background-position: -45.5em -27.3em; }
+.rank09H {color: #890000; background-position: -52em -27.3em; }
 .rank10H {color: #890000; background-position: -58.5em -27.3em; }
-.rankJH {color: #890000; background-position: -78em -27.3em; }
-.rankQH {color: #890000; background-position: -71.5em -27.3em; }
-.rankKH {color: #890000; background-position: -65em -27.3em; }
-.rankAH {color: #890000; background-position: 0 -27.3em; }
+.rank11H {color: #890000; background-position: -78em -27.3em; }
+.rank12H {color: #890000; background-position: -71.5em -27.3em; }
+.rank13H {color: #890000; background-position: -65em -27.3em; }
+.rank14H {color: #890000; background-position: 0 -27.3em; }
 /* spades */
-.rank2S {color: #000; background-position: -6.5em -18.2em; }
-.rank3S {color: #000; background-position: -13em -18.2em; }
-.rank4S {color: #000; background-position: -19.5em -18.2em; }
-.rank5S {color: #000; background-position: -26em -18.2em; }
-.rank6S {color: #000; background-position: -32.5em -18.2em; }
-.rank7S {color: #000; background-position: -39em -18.2em; }
-.rank8S {color: #000; background-position: -45.5em -18.2em; }
-.rank9S {color: #000; background-position: -52em -18.2em; }
+.rank02S {color: #000; background-position: -6.5em -18.2em; }
+.rank03S {color: #000; background-position: -13em -18.2em; }
+.rank04S {color: #000; background-position: -19.5em -18.2em; }
+.rank05S {color: #000; background-position: -26em -18.2em; }
+.rank06S {color: #000; background-position: -32.5em -18.2em; }
+.rank07S {color: #000; background-position: -39em -18.2em; }
+.rank08S {color: #000; background-position: -45.5em -18.2em; }
+.rank09S {color: #000; background-position: -52em -18.2em; }
 .rank10S {color: #000; background-position: -58.5em -18.2em; }
-.rankJS {color: #000; background-position: -78em -18.2em; }
-.rankQS {color: #000; background-position: -71.5em -18.2em; }
-.rankKS {color: #000; background-position: -65em -18.2em; }
-.rankAS {color: #000; background-position: 0 -18.2em; }
+.rank11S {color: #000; background-position: -78em -18.2em; }
+.rank12S {color: #000; background-position: -71.5em -18.2em; }
+.rank13S {color: #000; background-position: -65em -18.2em; }
+.rank14S {color: #000; background-position: 0 -18.2em; }
 /* diamonds */
-.rank2D {color: #890000; background-position: -6.5em -9.1em; }
-.rank3D {color: #890000; background-position: -13em -9.1em; }
-.rank4D {color: #890000; background-position: -19.5em -9.1em; }
-.rank5D {color: #890000; background-position: -26em -9.1em; }
-.rank6D {color: #890000; background-position: -32.5em -9.1em; }
-.rank7D {color: #890000; background-position: -39em -9.1em; }
-.rank8D {color: #890000; background-position: -45.5em -9.1em; }
-.rank9D {color: #890000; background-position: -52em -9.1em; }
+.rank02D {color: #890000; background-position: -6.5em -9.1em; }
+.rank03D {color: #890000; background-position: -13em -9.1em; }
+.rank04D {color: #890000; background-position: -19.5em -9.1em; }
+.rank05D {color: #890000; background-position: -26em -9.1em; }
+.rank06D {color: #890000; background-position: -32.5em -9.1em; }
+.rank07D {color: #890000; background-position: -39em -9.1em; }
+.rank08D {color: #890000; background-position: -45.5em -9.1em; }
+.rank09D {color: #890000; background-position: -52em -9.1em; }
 .rank10D {color: #890000; background-position: -58.5em -9.1em; }
-.rankJD {color: #890000; background-position: -78em -9.1em; }
-.rankQD {color: #890000; background-position: -71.5em -9.1em; }
-.rankJD {color: #890000; background-position: -65em -9.1em; }
-.rankAD {color: #890000; background-position: 0 -9.1em; }
+.rank11D {color: #890000; background-position: -78em -9.1em; }
+.rank12D {color: #890000; background-position: -71.5em -9.1em; }
+.rank13D {color: #890000; background-position: -65em -9.1em; }
+.rank14D {color: #890000; background-position: 0 -9.1em; }
 /* clubs */
-.rank2C {color: #000; background-position: -6.5em 0; }
-.rank3C {color: #000; background-position: -13em 0; }
-.rank4C {color: #000; background-position: -19.5em 0; }
-.rank5C {color: #000; background-position: -26em 0; }
-.rank6C {color: #000; background-position: -32.5em 0; }
-.rank7C {color: #000; background-position: -39em 0; }
-.rank8C {color: #000; background-position: -45.5em 0; }
-.rank9C {color: #000; background-position: -52em 0; }
+.rank02C {color: #000; background-position: -6.5em 0; }
+.rank03C {color: #000; background-position: -13em 0; }
+.rank04C {color: #000; background-position: -19.5em 0; }
+.rank05C {color: #000; background-position: -26em 0; }
+.rank06C {color: #000; background-position: -32.5em 0; }
+.rank07C {color: #000; background-position: -39em 0; }
+.rank08C {color: #000; background-position: -45.5em 0; }
+.rank09C {color: #000; background-position: -52em 0; }
 .rank10C {color: #000; background-position: -58.5em 0; }
-.rankJC {color: #000; background-position: -78em 0;  }
-.rankQC {color: #000; background-position: -71.5em 0; }
-.rankKC {color: #000; background-position: -65em 0; }
-.rankAC {color: #000; background-position: 0 0; }
+.rank11C {color: #000; background-position: -78em 0;  }
+.rank12C {color: #000; background-position: -71.5em 0; }
+.rank13C {color: #000; background-position: -65em 0; }
+.rank14C {color: #000; background-position: 0 0; }

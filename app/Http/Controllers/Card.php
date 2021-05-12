@@ -18,11 +18,11 @@ class Card
 {
     use Deck;
 
-    private ?string $burnedCard;
+    private ?string $removedCard;
     private ?string $drawnCard;
 
     public function removeCard(): void {
-        $burnedCard = array_shift($this->deck); // remove top card
+        $removedCard = array_shift($this->deck); // remove top card
     }
 
     public function drawCard() {
