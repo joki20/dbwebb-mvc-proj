@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-use Joki20\Http\Controllers\Card; // use Deck class
+use Joki20\Http\Controllers\CardHand; // use Deck class
 
 ?>
 
@@ -21,8 +21,11 @@ use Joki20\Http\Controllers\Card; // use Deck class
 </p>
 <div class="card rank12H">Q <br/> &hearts;</div>
 <?php
-$card = new Card();
-$card->shuffleDeck();
+$cardHand = new CardHand();
+$cardHand->shuffleDeck();
+$cardHand->drawHand();
+var_dump($cardHand->suits());
+var_dump($cardHand->values());
 // // echo $card->drawCard();
 // echo '<br><br><br><br><br><br><br><br>';
 // echo $card->deckSize();
