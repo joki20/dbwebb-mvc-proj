@@ -13,7 +13,7 @@ use Joki20\Http\Controllers\Card; // use Deck class
 <h1>Home</h1>
 
 <p>
-    Welcome to this page where you can play a set of the game Texas Hold'Em against 3 other computer players. The game doesn't contain any betting though.
+    Welcome to this page where you can play a game of Poker against 3 other computer players. The game doesn't contain any betting.
 </p>
 
 <p>

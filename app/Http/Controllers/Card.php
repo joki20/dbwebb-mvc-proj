@@ -17,10 +17,16 @@ use Joki20\Http\Controllers\Deck;
 class Card
 {
     use Deck;
+
+    private ?string $burnedCard;
     private ?string $drawnCard;
 
+    public function removeCard(): void {
+        $burnedCard = array_shift($this->deck); // remove top card
+    }
+
     public function drawCard() {
-        $drawnCard = array_shift($this->deck); // first card in array
+        $drawnCard = array_shift($this->deck); // top card
         return $drawnCard;
     }
 }
