@@ -11,7 +11,7 @@ namespace Joki20\Http\Controllers;
 use Joki20\Http\Controllers\Deck;
 
 /**
- * Class Cards.
+ * Class Card.
  */
 
 class Card

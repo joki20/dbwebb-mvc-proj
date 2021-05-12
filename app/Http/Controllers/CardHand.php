@@ -52,4 +52,20 @@ class CardHand extends Card
         }
         return $this->values;
     }
+
+    // public function showHand() {
+    //     echo '
+    //     <table>
+    //         <tr>' . foreach($this->hand as $card) { . '
+    //
+    //         }
+    //             for ($card = 0; $card < 5; $card++) {
+    //             <td>' .
+    //
+    //
+    //         echo $this->hand[i];
+    //     }
+        return $this->values;
+    }
+
 }

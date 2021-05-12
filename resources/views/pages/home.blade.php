@@ -13,7 +13,7 @@ use Joki20\Http\Controllers\CardHand; // use Deck class
 <h1>Home</h1>
 
 <p>
-    Welcome to this page where you can play a game of Poker against 3 other computer players. The game doesn't contain any betting.
+    Welcome to this page where you can play a game of Poker Squares. The objective is to place cards in a 5x5 grid. After that, each row and column is scored as a regular poker hand of five cards. The better the hand, the more you score for that row or column.
 </p>
 
 <p>
