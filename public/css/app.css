@@ -3,17 +3,54 @@ body {
     width: 800px;
     margin: 8px auto;
     padding-left: 1em;
-    border-left: 1px solid #ccc;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
 }
 
 main {
     min-height: 20em;
 }
 
+h1 {
+    text-align: center;
+}
+
 footer {
     border-top: 1px solid #ccc;
     min-height: 4em;
     text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 0.5rem;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    height: 8.85em;
+    width: 6.4em;
+}
+
+/* Lay cards out in a stacked hand showing indices */
+.hand .card:nth-of-type(1) { left: 0; }
+.hand .card:nth-of-type(2) { left: 1em; }
+.hand .card:nth-of-type(3) { left: 2em; }
+.hand .card:nth-of-type(4) { left: 3em; }
+.hand .card:nth-of-type(5) { left: 4em; }
+
+.cardstack, .hand {
+ position: relative;
+ height: 9.6em;
+ padding-right: 0;
 }
 
 /* card styling */

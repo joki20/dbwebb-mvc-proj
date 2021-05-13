@@ -14,6 +14,6 @@ use Joki20\Http\Controllers\PokerSquares;
 
 <?php session(['pokerSquares' => new PokerSquares()]);
 
-echo session('pokerSquares')->start();
+echo session('pokerSquares')->game();
 
 ?>

@@ -19,9 +19,11 @@ declare(strict_types=1);
 
 <header>
     <nav>
-        <a href="<?= url("/") ?>">Home</a>
-        <a href="<?= url("/play") ?>">Play Texas Hold'Em</a>
-        <a href="<?= url("/highscore") ?>">High score</a>
+        <ul>
+            <li><a href="<?= url("/") ?>">Home</a></li>
+            <li><a href="<?= url("/pokersquares") ?>">Play</a></li>
+            <li><a href="<?= url("/highscore") ?>">High score</a></li>
+        </ul>
     </nav>
 </header>
 <main>

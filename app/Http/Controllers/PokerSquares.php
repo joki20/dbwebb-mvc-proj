@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
-use Joki20\Http\Controllers\PokerSquares;
+// use Joki20\Http\Controllers\PokerSquares;
+use Joki20\Http\Controllers\Setup;
 
 /**
  * Class PokerSquares.
@@ -16,39 +17,20 @@ use Joki20\Http\Controllers\PokerSquares;
 
 class PokerSquares
 {
-    use CardHand;
+    use Setup;
 
-    private ?string $grid;
-    private ?string $cells;
-    private ?string $row;
+    public function game() {
+        // new game
 
-    public function createGrid() {
-
-        for ($row = 0; $row < 5; $row++) {
-            $this->cells .= '
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            ';
-        };
-
-        $this->grid = '
-            <table>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            ' . $this->cells . '
-            </table>;
-            ';
-
-        return $this->grid;
+        // set name
+        empty($_POST) ? print_r($this->name()) : null;
+        // save name and reset points
+        // shuffle deck, store in session('deck');
+        // create draw stack
+        // setup grid
+        isset($_POST['setName']) ? print_r($this->saveName()) : null;
+        isset($_POST['setName']) ? print_r($this->shuffleDeck()) : null;
+        isset($_POST['setName']) ? print_r($this->createStack()) : null;
+        isset($_POST['setName']) ? print_r($this->setupGrid()) : null;
     }
 }

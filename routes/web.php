@@ -35,6 +35,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/pokersquares', function () {
+    return view('pokersquares');
+});
+
+Route::post('/pokersquares', function () {
+    return view('pokersquares');
+});
+
 // Route::get('/info', function () {
 //     return view('info');
 // });

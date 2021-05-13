@@ -65,7 +65,7 @@ class CardHand extends Card
     //
     //         echo $this->hand[i];
     //     }
-        return $this->values;
-    }
+    //     return $this->values;
+    // }
 
 }

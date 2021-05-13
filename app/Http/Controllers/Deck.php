@@ -16,7 +16,8 @@ namespace Joki20\Http\Controllers;
 
 trait Deck
 {
-    private $deck = [
+    protected ?string $stack = '';
+    protected ?array $deck = [
         /* hearts */
         '<div class="card rank02H">2 <br/> &hearts;</div>',
         '<div class="card rank03H">3 <br/> &hearts;</div>',
@@ -75,11 +76,7 @@ trait Deck
         '<div class="card rank14C">A <br/> &clubs;</div>'
     ];
 
-    public function shuffleDeck() {
-        return shuffle($this->deck);
-    }
-
-    public function deckSize() {
-        return count($this->deck);
+    public function deckSize(array $sessionDeck) {
+        return count($sessionDeck);
     }
 }
