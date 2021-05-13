@@ -36,9 +36,13 @@ table, th, td {
 }
 
 td {
-    height: 8.85em;
-    width: 6.4em;
+    height: 9em;
+    width: 6.6em;
     vertical-align: top;
+}
+
+td:last-child {
+    width: 7em;
 }
 
 td form {
