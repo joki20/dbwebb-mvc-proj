@@ -20,6 +20,7 @@ trait Setup
     private ?string $pos = '';
 
     public function name() {
+
         return '
             <form method="POST" autocomplete="off">
                 <input type="text" name="setName" placeholder="Name" minlength=3 required >
@@ -30,33 +31,48 @@ trait Setup
     }
 
     public function prepareSessions(): void {
+
         session()->put('name', $_POST['setName']);
         session()->put('points', 0);
         // create sessions 00-06, 10-14, ... 40-44 with button for card placement
         for ($row = 0; $row < 5; $row++) {
             for ($col = 0; $col < 5; $col++) {
                 session()->put(
-                    $row . $col, "
-                    <form method='POST'>
-                        <input type='hidden' name='position' value=" . $row . $col . ">
-                        <input type='submit' name='placeCard' value=''>
+                    $row . $col, '
+                    <form method="POST">
+                        <input type="hidden" name="position" value=' . $row . $col . '>
+                        <input type="submit" name="placeCard" value="">
                     </form>
-                    "
+                    '
                 );
             }
         }
-        // column scores
-        session()->put('scoreColumn0', '');
-        session()->put('scoreColumn1', '');
-        session()->put('scoreColumn2', '');
-        session()->put('scoreColumn3', '');
-        session()->put('scoreColumn4', '');
+        // row data (suits array and values array)
+        session()->put('dataRow0', []);
+        session()->put('dataRow1', []);
+        session()->put('dataRow2', []);
+        session()->put('dataRow3', []);
+        session()->put('dataRow4', []);
+        // column data (suits array and values array)
+        session()->put('dataColumn0', []);
+        session()->put('dataColumn1', []);
+        session()->put('dataColumn2', []);
+        session()->put('dataColumn3', []);
+        session()->put('dataColumn4', []);
         // row scores
         session()->put('scoreRow0', '');
         session()->put('scoreRow1', '');
         session()->put('scoreRow2', '');
         session()->put('scoreRow3', '');
         session()->put('scoreRow4', '');
+        // column scores
+        session()->put('scoreColumn0', '');
+        session()->put('scoreColumn1', '');
+        session()->put('scoreColumn2', '');
+        session()->put('scoreColumn3', '');
+        session()->put('scoreColumn4', '');
+
+        session()->put('totalScore', '');
     }
 
     public function shuffleDeck(): void {
@@ -85,7 +101,7 @@ trait Setup
     public function displayGrid() {
         for ($row = 0; $row < 6; $row++) {
             // if not last row
-            if ($row != 5) {
+            if ($row < 5) {
                 $this->cells .= '
                 <tr>
                     <td>' . session($row . '0') . '</td>
@@ -93,10 +109,15 @@ trait Setup
                     <td>' . session($row . '2') . '</td>
                     <td>' . session($row . '3') . '</td>
                     <td>' . session($row . '4') . '</td>
-                    <td>' . session('scoreRow' . $row)  . '</td>
-                    <td>' . session($row . '6') . '</td>
-                </tr>';
-            } else {
+                    <td>' . session('scoreRow' . $row)  . '</td>';
+                if ($row == 0) {
+                    $this->cells .= '<td>' . session('06') . '</td></tr>';
+                } else {
+                    $this->cells .= '<td></td></tr>';
+                }
+            }
+
+            if ($row == 5) {
                 $this->cells .= '
                 <tr>
                     <td>' . session('scoreColumn0') . '</td>
@@ -130,8 +151,6 @@ trait Setup
         // 2. place card at correct place
         $pos = $_POST['position'];
         session()->put($pos, $currentCard);
-        // 3. check if scoring occurs
-        // 4. calculate total score
     }
 
 }

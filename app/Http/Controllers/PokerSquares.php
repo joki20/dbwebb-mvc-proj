@@ -18,12 +18,13 @@ use Joki20\Http\Controllers\Setup;
 class PokerSquares
 {
     use Setup;
+    use Scoring;
 
     public function game() {
         // new game
 
         // SET NAME
-        empty($_POST) ? print_r($this->name()) : null;
+        empty($_POST) ? print_r($this->name()) : "lol";
         // SET NAME RESULT
         // save name and reset points
         // shuffle deck, store in session('deck');
@@ -34,12 +35,14 @@ class PokerSquares
         isset($_POST['setName']) ? print_r($this->prepareStack()) : null;
         isset($_POST['setName']) ? print_r($this->displayGrid()) : null;
         // IF CARD WAS PLACED ($_POST begins with 'place')
-        //isset($_POST['placeCard']) ? print_r($this->placeCard()) : null;
         isset($_POST['placeCard']) ? print_r($this->placeCard()) : null;
         isset($_POST['placeCard']) ? print_r($this->prepareStack()) : null;
+        // isset($_POST['placeCard']) ? print_r($this->dataRow()) : null;
+        // isset($_POST['placeCard']) ? print_r($this->rowScore()) : null;
+        // isset($_POST['placeCard']) ? print_r($this->columnData()) : null;
+        // isset($_POST['placeCard']) ? print_r($this->columnScore()) : null;
         isset($_POST['placeCard']) ? print_r($this->displayGrid()) : null;
-        // PLACE CARD
-        // will display grid
-        // str_begins_with($_POST['place'], 'place') ? print_r($this->displayGrid()) : null;
+        var_dump(session('30'));
+
     }
 }
