@@ -15,59 +15,57 @@ trait Scoring
 {
     use Setup;
 
-    private ?string $currentSession = '';
+    private ?int $columnCounter = 0;
+    private ?int $rowCounter = 0;
     private ?array $suitsRow = [];
     private ?array $valuesRow = [];
     private ?array $suitsColumn = [];
     private ?array $valuesColumn = [];
 
-    public function fullHandsData() {
+    public function dataRow() {
         $this->suitsRow = [];
         $this->valuesRow = [];
-        $this->suitsColumn = [];
-        $this->valuesColumn = [];
-        $this->currentSession = '';
 
         for ($row = 0; $row < 5; $row++) {
             for ($column = 0; $column < 5; $column++) {
                 // initial length is 0, if not then session contians card
+
                 // ROW SUITS AND VALUES
-                // if a card is existing (form length has 233)
-                $this->currentSession = session($row . $column);
-                if (strlen($this->currentSession) != 233) {
+                // if a card is existing
+                if (!str_starts_with(session("$row . $column"), '<form')) {
                     // collect suit HDSC
                     array_push($this->suitsRow, substr(session($row . $column),23,1));
-                    array_push($this->suitsColumn, substr(session($row . $column),23,1));
                     // collect value 02-14
                     array_push($this->valuesRow, substr(session($row . $column),21,2));
-                    array_push($this->valuesColumn, substr(session($row . $column),21,2));
                 }
 
-                print_r(count($this->suitsRow));
-
-                // ROW SAVE DATA
-                // if five cards (five suits), push suits and values arrays
+                // if there are five cards in row (five suits)
                 if ($column == 4 && count($this->suitsRow) == 5) {
-                    session()->put('dataRow' . $row, $this->suitsRow);
-                    session()->put('dataRow' . $row, $this->valuesRow);
+                    session()->push('dataRow' . $row, $this->suitsRow);
+                    session()->push('dataRow' . $row, $this->valuesRow);
                 }
 
                 // reset suits and values before next row
                 if ($column == 4) {
-                    $this->suitsRow = [];
-                    $this->valuesRow = [];
-                }
-
-                // COLUMN SAVE DATA
-                if ($column == 0 && $row == 5 && count($this->suitsColumn) == 5) {
-                    session()->put('dataColumn' . $column, $this->suitsColumn);
-                    session()->put('dataColumn' . $column, $this->valuesColumn);
+                    $this->suits = [];
+                    $this->values = [];
                 }
             }
         }
     }
 
-
+    // public function rowData() {
+    //     for ($row = 0; $row < 5; $row++) {
+    //         // ROW SUITS AND VALUES
+    //         if (strlen(session($row . $column)) != 0 ) {
+    //             // collect all suits DHCS
+    //             array_push($this->suitsRow, substr(session($row . 0),23,1));
+    //             // collect all values 02-14
+    //             array_push($this->valuesRow, substr(session($row . 0),21,2));
+    //             }
+    //         }
+    //     }
+    // }
     //
     //
     //         }
@@ -108,4 +106,5 @@ trait Scoring
     //     //     $this->values = $this->values . substr($this->hand[$card], 21, 2);
     //     // }
     //     // return $this->values;
+
 }

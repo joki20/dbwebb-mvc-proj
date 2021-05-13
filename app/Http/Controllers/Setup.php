@@ -21,8 +21,7 @@ trait Setup
 
     public function name() {
 
-        return '
-            <form method="POST" autocomplete="off">
+        return '<form method="POST" autocomplete="off">
                 <input type="text" name="setName" placeholder="Name" minlength=3 required >
                 <input type="submit" value="start">
             </form>
