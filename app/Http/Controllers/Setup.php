@@ -39,7 +39,7 @@ trait Setup
                     $row . $col, "
                     <form method='POST'>
                         <input type='hidden' name='position' value=" . $row . $col . ">
-                        <input type='submit' name='placeCard'>
+                        <input type='submit' name='placeCard' value=''>
                     </form>
                     "
                 );
