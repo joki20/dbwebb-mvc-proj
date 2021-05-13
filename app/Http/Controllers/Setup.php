@@ -35,7 +35,7 @@ trait Setup
                 session()->put(
                     $row . $col, "
                     <form method='POST'>
-                        <input type='submit' name= " . $row . $col . " value='hej'
+                        <input type='submit' name='place'" . $row . $col . " value='hej'
                     </form>
                     "
                 );
@@ -75,7 +75,7 @@ trait Setup
         session()->put('06', $this->stack);
     }
 
-    public function setupGrid() {
+    public function displayGrid() {
         for ($row = 0; $row < 6; $row++) {
             // if not last row
             if ($row != 5) {

@@ -22,8 +22,9 @@ class PokerSquares
     public function game() {
         // new game
 
-        // set name
+        // SET NAME
         empty($_POST) ? print_r($this->name()) : null;
+        // SET NAME RESULT
         // save name and reset points
         // shuffle deck, store in session('deck');
         // create draw stack
@@ -31,6 +32,16 @@ class PokerSquares
         isset($_POST['setName']) ? print_r($this->prepareSessions()) : null;
         isset($_POST['setName']) ? print_r($this->shuffleDeck()) : null;
         isset($_POST['setName']) ? print_r($this->createStack()) : null;
-        isset($_POST['setName']) ? print_r($this->setupGrid()) : null;
+        isset($_POST['setName']) ? print_r($this->displayGrid()) : null;
+
+        // IF CARD WAS PLACED ($_POST begins with 'place')
+        foreach($_POST as $key => $value) {
+            if (strpos($key, 'place')) {
+                print_r($this->displayGrid());
+            }
+        }
+        // PLACE CARD
+        // will display grid
+        // str_begins_with($_POST['place'], 'place') ? print_r($this->displayGrid()) : null;
     }
 }
