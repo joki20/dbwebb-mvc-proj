@@ -28,7 +28,7 @@ class PokerSquares
         // shuffle deck, store in session('deck');
         // create draw stack
         // setup grid
-        isset($_POST['setName']) ? print_r($this->saveName()) : null;
+        isset($_POST['setName']) ? print_r($this->prepareSessions()) : null;
         isset($_POST['setName']) ? print_r($this->shuffleDeck()) : null;
         isset($_POST['setName']) ? print_r($this->createStack()) : null;
         isset($_POST['setName']) ? print_r($this->setupGrid()) : null;
