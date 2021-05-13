@@ -31,15 +31,13 @@ class PokerSquares
         // setup grid
         isset($_POST['setName']) ? print_r($this->prepareSessions()) : null;
         isset($_POST['setName']) ? print_r($this->shuffleDeck()) : null;
-        isset($_POST['setName']) ? print_r($this->createStack()) : null;
+        isset($_POST['setName']) ? print_r($this->prepareStack()) : null;
         isset($_POST['setName']) ? print_r($this->displayGrid()) : null;
-
         // IF CARD WAS PLACED ($_POST begins with 'place')
-        foreach($_POST as $key => $value) {
-            if (strpos($key, 'place')) {
-                print_r($this->displayGrid());
-            }
-        }
+        //isset($_POST['placeCard']) ? print_r($this->placeCard()) : null;
+        isset($_POST['placeCard']) ? print_r($this->placeCard()) : null;
+        isset($_POST['placeCard']) ? print_r($this->prepareStack()) : null;
+        isset($_POST['placeCard']) ? print_r($this->displayGrid()) : null;
         // PLACE CARD
         // will display grid
         // str_begins_with($_POST['place'], 'place') ? print_r($this->displayGrid()) : null;

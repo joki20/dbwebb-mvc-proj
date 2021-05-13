@@ -15,6 +15,9 @@ trait Setup
     private ?string $grid = '';
     private ?string $cells = '';
     private ?string $row = '';
+    private ?array $arr;
+    private ?string $currentCard = '';
+    private ?string $pos = '';
 
     public function name() {
         return '
@@ -35,7 +38,8 @@ trait Setup
                 session()->put(
                     $row . $col, "
                     <form method='POST'>
-                        <input type='submit' name='place'" . $row . $col . " value='hej'
+                        <input type='hidden' name='position' value=" . $row . $col . ">
+                        <input type='submit' name='placeCard'>
                     </form>
                     "
                 );
@@ -61,7 +65,7 @@ trait Setup
         session()->put('deck', $this->deck);
     }
 
-    public function createStack() {
+    public function prepareStack() {
         $this->stack = '<div class="cardstack">';
         // reversed order compared to array
         foreach (session('deck') as $card) {
@@ -69,9 +73,12 @@ trait Setup
         }
         $this->stack .= '</div>';
 
+        session()->put('stack', $this->stack);
+
         // reverse array (top card is session('deck')[0])
         session()->put('deck', array_reverse(session('deck')));
         // insert shuffled game deck at position 06 (top right)
+
         session()->put('06', $this->stack);
     }
 
@@ -109,7 +116,22 @@ trait Setup
             </table>
             ';
 
+        // place card stack at top right position
+        session()->put('06', session('stack'));
+
         return $this->grid;
+    }
+
+    public function placeCard(): void {
+        // 1. remove first card in session('deck');
+        $arr = session('deck');
+        $currentCard = array_shift($arr);
+        session()->put('deck', $arr);
+        // 2. place card at correct place
+        $pos = $_POST['position'];
+        session()->put($pos, $currentCard);
+        // 3. check if scoring occurs
+        // 4. calculate total score
     }
 
 }
