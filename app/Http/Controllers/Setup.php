@@ -59,35 +59,26 @@ trait Setup
         session()->put('dataColumn3', []);
         session()->put('dataColumn4', []);
         // row scores
-        session()->put('scoreRow0', null);
-        session()->put('scoreRow1', null);
-        session()->put('scoreRow2', null);
-        session()->put('scoreRow3', null);
-        session()->put('scoreRow4', null);
+        session()->put('scoreRow0', ['score' => null, 'text' => '']);
+        session()->put('scoreRow1', ['score' => null, 'text' => '']);
+        session()->put('scoreRow2', ['score' => null, 'text' => '']);
+        session()->put('scoreRow3', ['score' => null, 'text' => '']);
+        session()->put('scoreRow4', ['score' => null, 'text' => '']);
         // column scores
-        session()->put('scoreColumn0', null);
-        session()->put('scoreColumn1', null);
-        session()->put('scoreColumn2', null);
-        session()->put('scoreColumn3', null);
-        session()->put('scoreColumn4', null);
-
-        session()->put('totalScore',
-            session('scoreRow0') +
-            session('scoreRow1') +
-            session('scoreRow2') +
-            session('scoreRow3') +
-            session('scoreRow4') +
-            session('scoreColumn0') +
-            session('scoreColumn1') +
-            session('scoreColumn2') +
-            session('scoreColumn3') +
-            session('scoreColumn0')
-        );
+        session()->put('scoreColumn0', ['score' => null, 'text' => '']);
+        session()->put('scoreColumn1', ['score' => null, 'text' => '']);
+        session()->put('scoreColumn2', ['score' => null, 'text' => '']);
+        session()->put('scoreColumn3', ['score' => null, 'text' => '']);
+        session()->put('scoreColumn4', ['score' => null, 'text' => '']);
     }
 
     public function shuffleDeck(): void {
         // save grid in session
         shuffle($this->deck);
+        // remove 27 cards (25 left for game)
+        for ($card = 0; $card < 27; $card++) {
+            array_shift($this->deck);
+        }
         session()->put('deck', $this->deck);
     }
 
@@ -109,6 +100,19 @@ trait Setup
     }
 
     public function displayGrid() {
+        session()->put('totalScore',
+            session('scoreRow0.score') +
+            session('scoreRow1.score') +
+            session('scoreRow2.score') +
+            session('scoreRow3.score') +
+            session('scoreRow4.score') +
+            session('scoreColumn0.score') +
+            session('scoreColumn1.score') +
+            session('scoreColumn2.score') +
+            session('scoreColumn3.score') +
+            session('scoreColumn4.score')
+        );
+
         print_r(session('totalScore'));
         for ($row = 0; $row < 6; $row++) {
             // if not last row
@@ -120,7 +124,7 @@ trait Setup
                     <td>' . session($row . '2') . '</td>
                     <td>' . session($row . '3') . '</td>
                     <td>' . session($row . '4') . '</td>
-                    <td>' . session('scoreRow' . $row)  . '</td>';
+                    <td>' . session('scoreRow' . $row . '.text') . '<br>' . session('scoreRow' . $row . '.score')  . '</td>';
                 if ($row == 0) {
                     $this->cells .= '<td>' . session('06') . '</td></tr>';
                 } else {
@@ -131,11 +135,11 @@ trait Setup
             if ($row == 5) {
                 $this->cells .= '
                 <tr>
-                    <td>' . session('scoreColumn0') . '</td>
-                    <td>' . session('scoreColumn1') . '</td>
-                    <td>' . session('scoreColumn2') . '</td>
-                    <td>' . session('scoreColumn3') . '</td>
-                    <td>' . session('scoreColumn4') . '</td>
+                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn0.score') . '</td>
+                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn1.score') . '</td>
+                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn2.score') . '</td>
+                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn3.score') . '</td>
+                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn4.score') . '</td>
                     <td></td>
                     <td></td>
                 </tr>';
