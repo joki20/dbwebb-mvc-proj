@@ -59,19 +59,30 @@ trait Setup
         session()->put('dataColumn3', []);
         session()->put('dataColumn4', []);
         // row scores
-        session()->put('scoreRow0', '');
-        session()->put('scoreRow1', '');
-        session()->put('scoreRow2', '');
-        session()->put('scoreRow3', '');
-        session()->put('scoreRow4', '');
+        session()->put('scoreRow0', null);
+        session()->put('scoreRow1', null);
+        session()->put('scoreRow2', null);
+        session()->put('scoreRow3', null);
+        session()->put('scoreRow4', null);
         // column scores
-        session()->put('scoreColumn0', '');
-        session()->put('scoreColumn1', '');
-        session()->put('scoreColumn2', '');
-        session()->put('scoreColumn3', '');
-        session()->put('scoreColumn4', '');
+        session()->put('scoreColumn0', null);
+        session()->put('scoreColumn1', null);
+        session()->put('scoreColumn2', null);
+        session()->put('scoreColumn3', null);
+        session()->put('scoreColumn4', null);
 
-        session()->put('totalScore', '');
+        session()->put('totalScore',
+            session('scoreRow0') +
+            session('scoreRow1') +
+            session('scoreRow2') +
+            session('scoreRow3') +
+            session('scoreRow4') +
+            session('scoreColumn0') +
+            session('scoreColumn1') +
+            session('scoreColumn2') +
+            session('scoreColumn3') +
+            session('scoreColumn0')
+        );
     }
 
     public function shuffleDeck(): void {
@@ -98,6 +109,7 @@ trait Setup
     }
 
     public function displayGrid() {
+        print_r(session('totalScore'));
         for ($row = 0; $row < 6; $row++) {
             // if not last row
             if ($row < 5) {

@@ -23,6 +23,7 @@ trait Scoring
     private ?array $scoreSession = [];
     private ?array $sortedValues = [];
     private ?bool $consecutiveArray;
+    private ?int $times;
     private ?array $occurrencesSuits = [];
     private ?array $occurrencesValues = [];
 
@@ -114,7 +115,7 @@ trait Scoring
        $this->consecutiveArray = true;
         // CREATE COPY ARRAY AND SORT VALUES
        $this->sortedValues = $this->scoreSession[1];
-       asort($this->sortedValues);
+       sort($this->sortedValues);
 
        // check if consecutive numbers
        for ($i = 0; $i < 4; $i++) {
@@ -123,13 +124,14 @@ trait Scoring
            }
        }
 
-       if ($this->sortedValues === ["14", "1", "2", "3", "4"]) {
+       if ($this->sortedValues === ["14", "01", "02", "03", "04"]) {
            $this->consecutiveArray = true;
        }
        // END OF SORT
 
 
        // ///////////// SAME SUIT /////////////
+       // how many different suits. 1 means all are same
         if (count(array_count_values($this->scoreSession[0])) == 1) {
             // if straight
             if ($this->consecutiveArray == true) {
@@ -149,26 +151,37 @@ trait Scoring
 
         ///////////// AT LEAST 2 DIFFERENT SUITS /////////////
         elseif (count(array_count_values($this->scoreSession[1])) > 1) {
+            $this->occurrencesValues = [];
             // count occurrences of each value, insert into $occurrences array
-            foreach ($this->scoreSession[1] as $value) {
-                array_push($this->occurrencesValues, count($this->scoreSession, intval($value)));
+            $this->times = 0;
+            for ($val = 0; $val < 5; $val++) {
+                for ($match = 0; $match < 5; $match++) {
+                    if ($this->scoreSession[1][$val] == $this->scoreSession[1][$match]) {
+                        $this->times++;
+                    }
+                }
+                array_push($this->occurrencesValues, $this->times);
+                $this->times = 0;
             }
+
             // 4 OF A KIND
-            if (in_array("4", $this->occurrencesValues)) {
+            if (in_array(4, $this->occurrencesValues)) {
                 session()->put('score' . $type, 50);
                 // FULL HOUSE
-            } elseif (in_array("3", $this->occurrencesValues) && in_array("2", $this->occurrencesValues)) {
+            } elseif (in_array(3, $this->occurrencesValues) && in_array(2, $this->occurrencesValues)) {
                 session()->put('score' . $type, 25);
                 // 3 OF A KIND
-            } elseif (in_array("3", $this->occurrencesValues) && in_array("1", $this->occurrencesValues)) {
-                session()->put('score' . $type, 25);
+            } elseif (in_array(3, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
+                session()->put('score' . $type, 10);
+                // 2 PAIRS OR 1 PAIR
+            } elseif (in_array(2, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
                 // 2 PAIR
-            } elseif (in_array("2", $this->occurrencesValues) && count($this->occurrencesValues, 1) == "1") {
-                session()->put('score' . $type, 5);
-                // PAIR
-            } elseif (in_array("2", $this->occurrencesValues) && count($this->occurrencesValues, 1) == "3") {
-                session()->put('score' . $type, 2);
-                var_dump("hej");
+                if (array_count_values($this->occurrencesValues)[2] == 4) {
+                    session()->put('score' . $type, 5);
+                    // 1 PAIR
+                } elseif (array_count_values($this->occurrencesValues)[2] == 2) {
+                    session()->put('score' . $type, 2);
+                }
                 // CHECK FOR STRAIGHT
             } elseif ($this->consecutiveArray == true) {
                 session()->put('score' . $type, 15);
