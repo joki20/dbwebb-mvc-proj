@@ -40,5 +40,9 @@ class PokerSquares
         isset($_POST['placeCard']) ? $this->fullHandsData() : null;
         // isset($_POST['placeCard']) ? $this->scoreFullHand() : null;
         isset($_POST['placeCard']) ? print_r($this->displayGrid()) : null;
+
+        var_dump(session('dataColumn1'));
+        var_dump(session('dataColumn3'));
+        var_dump(session('scoreColumn2'));
     }
 }
