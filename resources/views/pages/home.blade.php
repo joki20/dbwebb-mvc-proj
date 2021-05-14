@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-use Joki20\Http\Controllers\CardHand; // use Deck class
+use Joki20\Http\Controllers\PokerSquares; // use Deck class
 
 ?>
 
@@ -19,12 +19,10 @@ use Joki20\Http\Controllers\CardHand; // use Deck class
 <p>
     The result of each game will be saved in a highscore list. You will be able to see which player won the most number of games, and also the result of the latest game.
 </p>
-
+<div class="centerCard">
 <?php
-// // echo $card->drawCard();
-// echo '<br><br><br><br><br><br><br><br>';
-// echo $card->deckSize();
+
+$obj = new PokerSquares();
+print_r($obj->returnDeck()[rand(0,51)]);
  ?>
-
-
-<div class="card rank05S">5 <br/> &spades;</div>
+</div>

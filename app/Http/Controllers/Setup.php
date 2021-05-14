@@ -21,11 +21,11 @@ trait Setup
 
     public function name() {
 
-        return '<form method="POST" autocomplete="off">
-                <input type="text" name="setName" placeholder="Name" minlength=3 required >
-                <input type="submit" value="start">
-            </form>
-        ';
+        return "<div class='enterName'><form method='POST' autocomplete='off'>
+                <input type='text' name='setName' placeholder='Name' minlength=3 onfocus=this.placeholder = required >
+                <input type='submit' value='GO'>
+            </form></div>
+        ";
 
     }
 
@@ -33,6 +33,7 @@ trait Setup
 
         session()->put('name', $_POST['setName']);
         session()->put('points', 0);
+        session()->put('round', 0);
         // create sessions 00-06, 10-14, ... 40-44 with button for card placement
         for ($row = 0; $row < 5; $row++) {
             for ($col = 0; $col < 5; $col++) {
@@ -59,26 +60,22 @@ trait Setup
         session()->put('dataColumn3', []);
         session()->put('dataColumn4', []);
         // row scores
-        session()->put('scoreRow0', ['score' => null, 'text' => '']);
-        session()->put('scoreRow1', ['score' => null, 'text' => '']);
-        session()->put('scoreRow2', ['score' => null, 'text' => '']);
-        session()->put('scoreRow3', ['score' => null, 'text' => '']);
-        session()->put('scoreRow4', ['score' => null, 'text' => '']);
+        session()->put('scoreRow0', ['score' => null, 'feedback' => '']);
+        session()->put('scoreRow1', ['score' => null, 'feedback' => '']);
+        session()->put('scoreRow2', ['score' => null, 'feedback' => '']);
+        session()->put('scoreRow3', ['score' => null, 'feedback' => '']);
+        session()->put('scoreRow4', ['score' => null, 'feedback' => '']);
         // column scores
-        session()->put('scoreColumn0', ['score' => null, 'text' => '']);
-        session()->put('scoreColumn1', ['score' => null, 'text' => '']);
-        session()->put('scoreColumn2', ['score' => null, 'text' => '']);
-        session()->put('scoreColumn3', ['score' => null, 'text' => '']);
-        session()->put('scoreColumn4', ['score' => null, 'text' => '']);
+        session()->put('scoreColumn0', ['score' => null, 'feedback' => '']);
+        session()->put('scoreColumn1', ['score' => null, 'feedback' => '']);
+        session()->put('scoreColumn2', ['score' => null, 'feedback' => '']);
+        session()->put('scoreColumn3', ['score' => null, 'feedback' => '']);
+        session()->put('scoreColumn4', ['score' => null, 'feedback' => '']);
     }
 
     public function shuffleDeck(): void {
         // save grid in session
         shuffle($this->deck);
-        // remove 27 cards (25 left for game)
-        for ($card = 0; $card < 27; $card++) {
-            array_shift($this->deck);
-        }
         session()->put('deck', $this->deck);
     }
 
@@ -113,7 +110,8 @@ trait Setup
             session('scoreColumn4.score')
         );
 
-        print_r(session('totalScore'));
+        print_r('<p class="totalScore">' . (session('round') == 25 ? 'Final ' : 'Current ') . ' score: ' . session('totalScore') . '</p>');
+
         for ($row = 0; $row < 6; $row++) {
             // if not last row
             if ($row < 5) {
@@ -124,8 +122,9 @@ trait Setup
                     <td>' . session($row . '2') . '</td>
                     <td>' . session($row . '3') . '</td>
                     <td>' . session($row . '4') . '</td>
-                    <td>' . session('scoreRow' . $row . '.text') . '<br>' . session('scoreRow' . $row . '.score')  . '</td>';
-                if ($row == 0) {
+                    <td><br><p>' . session('scoreRow' . $row . '.feedback') . '</p><p>' . session('scoreRow' . $row . '.score')  . '</p></td>';
+                    // show stack if still rounds left
+                if ($row == 0 && session('round') < 25) {
                     $this->cells .= '<td>' . session('06') . '</td></tr>';
                 } else {
                     $this->cells .= '<td></td></tr>';
@@ -135,11 +134,16 @@ trait Setup
             if ($row == 5) {
                 $this->cells .= '
                 <tr>
-                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn0.score') . '</td>
-                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn1.score') . '</td>
-                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn2.score') . '</td>
-                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn3.score') . '</td>
-                    <td>' . session('scoreColumn0.text') . '<br>' . session('scoreColumn4.score') . '</td>
+                    <td><p>' . session('scoreColumn0.feedback') . '</p><p>' . session('scoreColumn0.score') . '</p></td>
+
+                    <td><p>' . session('scoreColumn1.feedback') . '</p><p>' . session('scoreColumn1.score') . '</p></td>
+
+                    <td>' . session('scoreColumn2.feedback') . '</p><p>' . session('scoreColumn2.score') . '</p></td>
+
+                    <td><p>' . session('scoreColumn3.feedback') . '</p><p>' . session('scoreColumn3.score') . '</p</td>
+
+                    <td><p>' . session('scoreColumn4.feedback') . '</p><p>' . session('scoreColumn4.score') . '</p></td>
+
                     <td></td>
                     <td></td>
                 </tr>';
@@ -152,13 +156,14 @@ trait Setup
             </table>
             ';
 
-        // place card stack at top right position
         session()->put('06', session('stack'));
+
 
         return $this->grid;
     }
 
     public function placeCard(): void {
+
         // 1. remove first card in session('deck');
         $arr = session('deck');
         $currentCard = array_shift($arr);
@@ -166,6 +171,19 @@ trait Setup
         // 2. place card at correct place
         $pos = $_POST['position'];
         session()->put($pos, $currentCard);
+
+        // if last card placed, write to database
+       session()->put('round', session('round') + 1);
+
+        // if end of game, add points to highscore table
+       // if (session('timesScored') == 6) {
+       //     // create Highscore instance
+       //     $highscores = new Highscore();
+       //     // insert score
+       //     $highscores->score = session('sum');
+       //     // save to db
+       //     $highscores->save();
+       // }
     }
 
 }

@@ -18,11 +18,23 @@ declare(strict_types=1);
 <body>
 
 <header>
+    <?php
+    $navbar = [
+    ["controller" => "/",       "text" => "Home"],
+    ["controller" => "/pokersquares",    "text" => "Play"],
+    ["controller" => "/highscore",      "text" => "Highscore"],
+];
+
+$uri = $_SERVER["REQUEST_URI"]; // link to this file
+
+?>
     <nav>
         <ul>
-            <li><a href="<?= url("/") ?>">Home</a></li>
-            <li><a href="<?= url("/pokersquares") ?>">Play</a></li>
-            <li><a href="<?= url("/highscore") ?>">High score</a></li>
+        <?php foreach ($navbar as $item) :
+            $selected = $uri == $item['controller'] ? "selected" : null;
+            ?>
+            <li class="<?= $selected ?>"><a href="<?= $item["controller"] ?>"><?= $item["text"] ?></a></li>
+        <?php endforeach; ?>
         </ul>
     </nav>
 </header>

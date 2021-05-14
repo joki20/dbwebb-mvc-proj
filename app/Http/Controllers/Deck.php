@@ -79,4 +79,8 @@ trait Deck
     public function deckSize(array $sessionDeck) {
         return count($sessionDeck);
     }
+
+    public function returnDeck() {
+        return $this->deck;
+    }
 }

@@ -1,18 +1,67 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     overflow-y: scroll;
-    width: 800px;
-    margin: 8px auto;
-    padding-left: 1em;
+    width: 100%;
+
+    margin: 0 auto 0 auto;
+    background: rgb(25,141,47);
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: arial, helvetica;
+}
+
+.centerCard {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    margin: 0 auto;
+    width: 80%;
+    min-height: 36rem;
 }
 
 nav ul {
     display: flex;
+    margin-top: 0;
     justify-content: space-between;
     list-style-type: none;
+    border-bottom: 2px solid black;
+    background: linear-gradient(180deg, rgba(182,180,20,1) 0%, rgba(224,253,31,1) 84%);
+    padding-top: 0;
 }
 
-main {
-    min-height: 20em;
+nav li {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    border-left: 1px solid black;
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+}
+
+nav li:first-child {
+    border-left: none;
+}
+
+nav li.selected {
+    background-color: black;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit; /* color of parent */
+}
+
+nav a:selected {
+    color: white;
 }
 
 h1 {
@@ -20,25 +69,50 @@ h1 {
 }
 
 footer {
-    border-top: 1px solid #ccc;
-    min-height: 4em;
+    padding: 0.5rem 0;
+    width: 100%;
+    border-top: 1px solid #000;
     text-align: center;
+    left: 0;
+    bottom: 0;
+    background-color: none;
+    background: linear-gradient(180deg, rgba(182,180,20,1) 0%, rgba(224,253,31,1) 84%);
 }
 
 table {
     margin: 0 auto;
     border-collapse: collapse;
+    border: 0;
     font-size: 0.5rem;
+    background-color: #fff;
+    margin-bottom: 2rem;
 }
 
-table, th, td {
-    border: 1px solid black;
+tr {
+    border: 0;
+}
+
+td {
+    border: 1px solid rgb(25,141,47);
 }
 
 td {
     height: 9em;
     width: 6.6em;
     vertical-align: top;
+}
+
+/* center scoring cell text */
+td:nth-child(6),
+td:nth-child(13),
+td:nth-child(20),
+td:nth-child(27),
+td:nth-child(34),
+tr:nth-child(6)
+ {
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 auto;
 }
 
 td:last-child {
@@ -50,9 +124,77 @@ td form {
     width: 100%;
 }
 
-td input[type="submit"] {
+td form input[type="submit"] {
     height: 100%;
     width: 100%;
+    cursor: pointer;
+    border: 0;
+}
+
+tr td:nth-child(6),
+tr td:nth-child(7) {
+    background-color: rgb(25,141,47);
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+tr td:nth-child(6) {
+    color: white;
+}
+
+tr td:nth-child(7) {
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+    border-right: 0;
+}
+
+tr:nth-child(6) {
+    background-color: rgb(25,141,47);
+}
+
+tr:nth-child(6) td {
+    border-bottom: 0;
+    border-right: 0;
+}
+
+div.cardstack {
+    background-color: #fff;
+}
+
+div.enterName input[type="text"] {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 6rem;
+}
+
+div.enterName input[type="text"]:focus {
+    background-color: lightyellow;
+    outline: none;
+}
+
+div.enterName input[type="submit"] {
+    display: block;
+    height: 100%;
+    border-radius: 100%;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 10px;
+    background: rgb(182,180,20);
+    background: linear-gradient(180deg, rgba(182,180,20,1) 0%, rgba(224,253,31,1) 84%);
+}
+
+.totalScore {
+    display: block;
+    text-align: center;
+    color: #fff;
 }
 
 /* Lay cards out in a stacked hand showing indices */
@@ -76,7 +218,6 @@ td input[type="submit"] {
   height: 8.85em;
   width: 6.4em;
   background-color: #fff;
-
   font-family: 'Times', serif;
   line-height: 1em;
   padding-top: .25em;

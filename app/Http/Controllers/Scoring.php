@@ -137,15 +137,15 @@ trait Scoring
             if ($this->consecutiveArray == true) {
                 // ROYAL STRAIGHT FLUSH 10-A
                 if ($this->sortedValues[0] == "10") {
-                    session()->put('score' . $type, ['score' => 100, "ROYAL STRAIGHT FLUSH"]);
+                    session()->put('score' . $type, ['score' => 100, 'feedback' => 'ROYAL STRAIGHT FLUSH']);
                 // STRAIGHT FLUSH
                 } else {
-                    session()->put('score' . $type, ['score' => 75, "STRAIGHT FLUSH"]);
+                    session()->put('score' . $type, ['score' => 75, 'feedback' => 'STRAIGHT FLUSH']);
                 }
             }
             // FLUSH
             elseif ($this->consecutiveArray == false) {
-                session()->put('score' . $type, ['score' => 20, "FLUSH"]);
+                session()->put('score' . $type, ['score' => 20, 'feedback' => 'FLUSH']);
             }
         }
 
@@ -166,28 +166,28 @@ trait Scoring
 
             // 4 OF A KIND
             if (in_array(4, $this->occurrencesValues)) {
-                session()->put('score' . $type, ['score' => 50, 'text' => "FOUR OF A KIND"]);
+                session()->put('score' . $type, ['score' => 50, 'feedback' => 'FOUR OF A KIND']);
                 // FULL HOUSE
             } elseif (in_array(3, $this->occurrencesValues) && in_array(2, $this->occurrencesValues)) {
-                session()->put('score' . $type, ['score' => 25, 'text' => "FULL HOUSE"]);
+                session()->put('score' . $type, ['score' => 25, 'feedback' => 'FULL HOUSE']);
                 // 3 OF A KIND
             } elseif (in_array(3, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
-                session()->put('score' . $type, ['score' => 10, 'text' => "THREE OF A KIND"]);
+                session()->put('score' . $type, ['score' => 10, 'feedback' => 'THREE OF A KIND']);
                 // 2 PAIRS OR 1 PAIR
             } elseif (in_array(2, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
                 // 2 PAIRS
                 if (array_count_values($this->occurrencesValues)[2] == 4) {
-                    session()->put('score' . $type, ['score' => 5, 'text' => "2 PAIRS"]);
+                    session()->put('score' . $type, ['score' => 5, 'feedback' => '2 PAIRS']);
                     // 1 PAIR
                 } elseif (array_count_values($this->occurrencesValues)[2] == 2) {
-                    session()->put('score' . $type, ['score' => 2, 'text' => "PAIR"]);
+                    session()->put('score' . $type, ['score' => 2, 'feedback' => 'PAIR']);
                 }
                 // CHECK FOR STRAIGHT
             } elseif ($this->consecutiveArray == true) {
-                session()->put('score' . $type, ['score' => 15, 'text' => "STRAIGHT"]);
+                session()->put('score' . $type, ['score' => 15, 'feedback' => 'STRAIGHT']);
                 // no points
             } elseif ($this->consecutiveArray == false) {
-                session()->put('score' . $type, ['score' => 0, 'text' => "NOTHING"]);
+                session()->put('score' . $type, ['score' => 0, 'feedback' => 'NOTHING']);
             }
         }
     }
