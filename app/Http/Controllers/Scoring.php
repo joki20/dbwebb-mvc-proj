@@ -27,7 +27,20 @@ trait Scoring
         $this->suitsColumn = [];
         $this->valuesColumn = [];
         $this->currentSession = '';
+        // row data (suits array and values array)
+        session()->put('dataRow0', []);
+        session()->put('dataRow1', []);
+        session()->put('dataRow2', []);
+        session()->put('dataRow3', []);
+        session()->put('dataRow4', []);
+        // column data (suits array and values array)
+        session()->put('dataColumn0', []);
+        session()->put('dataColumn1', []);
+        session()->put('dataColumn2', []);
+        session()->put('dataColumn3', []);
+        session()->put('dataColumn4', []);
 
+        // LOOP FOR EACH ROW
         for ($row = 0; $row < 5; $row++) {
             for ($column = 0; $column < 5; $column++) {
                 // initial length is 0, if not then session contians card
@@ -35,38 +48,56 @@ trait Scoring
                 // if a card is existing (form length has 233)
                 $this->currentSession = session($row . $column);
                 if (strlen($this->currentSession) != 233) {
-                    // collect suit HDSC
+                    // collect suit HDSC and value 02-14 for row
                     array_push($this->suitsRow, substr(session($row . $column),23,1));
-                    array_push($this->suitsColumn, substr(session($row . $column),23,1));
-                    // collect value 02-14
                     array_push($this->valuesRow, substr(session($row . $column),21,2));
-                    array_push($this->valuesColumn, substr(session($row . $column),21,2));
                 }
-
-                print_r(count($this->suitsRow));
 
                 // ROW SAVE DATA
                 // if five cards (five suits), push suits and values arrays
                 if ($column == 4 && count($this->suitsRow) == 5) {
-                    session()->put('dataRow' . $row, $this->suitsRow);
-                    session()->put('dataRow' . $row, $this->valuesRow);
+                    session()->push('dataRow' . $row, $this->suitsRow);
+                    session()->push('dataRow' . $row, $this->valuesRow);
                 }
 
-                // reset suits and values before next row
+                // reset suits and values before next column
                 if ($column == 4) {
                     $this->suitsRow = [];
                     $this->valuesRow = [];
                 }
+            }
+        }
+
+        // LOOP FOR EACH COLUMN
+        for ($column = 0; $column < 5; $column++) {
+            for ($row = 0; $row < 5; $row++) {
+                // ROW SUITS AND VALUES
+                // if a card is existing (form length has 233)
+                $this->currentSession = session($row . $column);
+                if (strlen($this->currentSession) != 233) {
+                    // collect suit HDSC and value 02-14 for column
+                    array_push($this->suitsColumn, substr(session($row . $column),23,1));
+                    array_push($this->valuesColumn, substr(session($row . $column),21,2));
+                }
 
                 // COLUMN SAVE DATA
-                if ($column == 0 && $row == 5 && count($this->suitsColumn) == 5) {
-                    session()->put('dataColumn' . $column, $this->suitsColumn);
-                    session()->put('dataColumn' . $column, $this->valuesColumn);
+                if ($row == 4 && count($this->suitsColumn) == 5) {
+                    session()->push('dataColumn' . $column, $this->suitsColumn);
+                    session()->push('dataColumn' . $column, $this->valuesColumn);
+                }
+
+                // reset suits and values before next column
+                if ($row == 4) {
+                    $this->suitsColumn = [];
+                    $this->valuesColumn = [];
                 }
             }
         }
     }
 
+    public function scoreFullHands() {
+
+    }
 
     //
     //

@@ -24,7 +24,7 @@ class PokerSquares
         // new game
 
         // SET NAME
-        empty($_POST) ? print_r($this->name()) : "lol";
+        empty($_POST) ? print_r($this->name()) : null;
         // SET NAME RESULT
         // save name and reset points
         // shuffle deck, store in session('deck');
@@ -38,17 +38,9 @@ class PokerSquares
         isset($_POST['placeCard']) ? $this->placeCard() : null;
         isset($_POST['placeCard']) ? $this->prepareStack() : null;
         isset($_POST['placeCard']) ? $this->fullHandsData() : null;
-        // isset($_POST['placeCard']) ? print_r($this->rowScore()) : null;
+        isset($_POST['placeCard']) ? $this->scoreFullHands() : null;
         // isset($_POST['placeCard']) ? print_r($this->columnData()) : null;
         // isset($_POST['placeCard']) ? print_r($this->columnScore()) : null;
         isset($_POST['placeCard']) ? print_r($this->displayGrid()) : null;
-
-        // print_r(strlen(session('00')));
-        // print_r(strlen(session('01')));
-        // print_r(strlen(session('02')));
-        // print_r(strlen(session('03')));
-        var_dump(session('dataRow0'));
-
-
     }
 }
