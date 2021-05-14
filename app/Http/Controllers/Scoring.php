@@ -20,8 +20,13 @@ trait Scoring
     private ?array $valuesRow = [];
     private ?array $suitsColumn = [];
     private ?array $valuesColumn = [];
+    private ?array $scoreSession = [];
+    private ?array $sortedValues = [];
+    private ?bool $consecutiveArray;
+    private ?array $occurrencesSuits = [];
+    private ?array $occurrencesValues = [];
 
-    public function fullHandsData() {
+    public function fullHandsData(): void {
         $this->suitsRow = [];
         $this->valuesRow = [];
         $this->suitsColumn = [];
@@ -58,6 +63,9 @@ trait Scoring
                 if ($column == 4 && count($this->suitsRow) == 5) {
                     session()->push('dataRow' . $row, $this->suitsRow);
                     session()->push('dataRow' . $row, $this->valuesRow);
+
+                    // send array of suits and values for row to score function
+                    $this->scoreFullHand(session('dataRow' . $row));
                 }
 
                 // reset suits and values before next column
@@ -84,7 +92,9 @@ trait Scoring
                 if ($row == 4 && count($this->suitsColumn) == 5) {
                     session()->push('dataColumn' . $column, $this->suitsColumn);
                     session()->push('dataColumn' . $column, $this->valuesColumn);
+
                 }
+                $this->scoreFullHand(session('dataColumn' . $column));
 
                 // reset suits and values before next column
                 if ($row == 4) {
@@ -95,48 +105,75 @@ trait Scoring
         }
     }
 
-    public function scoreFullHands() {
+    public function scoreFullHand($type) {
+       // type is scoreColumnX/scoreRowX where X is row
+       $this->scoreSession = $type;
+       var_dump($type);
 
+       // set consecutive to true
+       // $this->consecutiveArray = true;
+       //  // SORT VALUES INTO NEW ARRAY
+       // $this->sortedValues = [];
+       //
+       // // sort values low to high
+       // $this->sortedValues = asort($this->scoreSession[1]);
+       // // check if consecutive numbers
+       // for ($i = 0; $i < 4; $i++) {
+       //     if ($this->sortedValues[$i+1] != $this->sortedValues[$i] + 1) {
+       //         $this->consecutiveArray = false;
+       //     }
+       // }
+    //
+    //    if ($this->sortedValues === ["14", "1", "2", "3", "4"]) {
+    //        $this->consecutiveArray = true;
+    //    }
+    //    // END OF SORT
+    //
+    //
+    //     $this->scoreSession = session('data' . $type);
+    //     ///////////// SAME SUIT /////////////
+    //     if (count(array_count_values($this->scoreSession[0])) == 1) {
+    //         // if straight
+    //         if ($this->consecutiveArray == true) {
+    //             // ROYAL STRAIGHT FLUSH 10-A
+    //             if ($this->sortedValues[0] == "10") {
+    //                 session()->put('score' . $type, 100);
+    //             // STRAIGHT FLUSH
+    //             } else {
+    //                 session()->put('score' . $type, 75);
+    //             }
+    //         }
+    //         // FLUSH
+    //         elseif ($this->consecutiveArray == false) {
+    //             session()->put('score' . $type, 20);
+    //         }
+    //     }
+    //
+    //     ///////////// AT LEAST 2 DIFFERENT SUITS /////////////
+    //     elseif (count(array_count_values($this->scoreSession[1])) > 1) {
+    //         // count occurrences of each value, insert into $occurrences array
+    //         foreach ($this->scoreSession[1] as $value) {
+    //             push_array($this->occurrencesValues, count($this->scoreSession, $value));
+    //         }
+    //         // 4 OF A KIND
+    //         if (in_array("4", $this->occurrencesValues)) {
+    //             session()->put('score' . $type, 50);
+    //             // FULL HOUSE
+    //         } elseif (in_array("3", $this->occurrencesValue) && in_array("2", $this->occurrencesValues)) {
+    //             session()->put('score' . $type, 25);
+    //             // 3 OF A KIND
+    //         } elseif (in_array("3", $this->occurrencesValues) && in_array("1", $this->occurrences)) {
+    //             session()->put('score' . $type, 25);
+    //             // 2 PAIR
+    //         } elseif (in_array("2", $this->occurrences) && count($this->occurrencesValue, "1") == "1") {
+    //             session()->put('score' . $type, 5);
+    //             // PAIR
+    //         } elseif (in_array("2", $this->occurrences) && count($this->occurrencesValue, "1") == "3") {
+    //             session()->put('score' . $type, 2);
+    //             // CHECK FOR STRAIGHT
+    //         } elseif ($this->consecutiveArray == true) {
+    //             session()->put('score' . $type, 15);
+    //         }
+    //     }
     }
-
-    //
-    //
-    //         }
-    //     }
-    //
-    //     // CALCULATE SCORES
-    //     if (strlen($this->suitsRow) == 5) {
-    //         // if all suits same
-    //         if (count(array_count_values($this->suitsRow)) == 1) {
-    //             // if royal flush 10-14 (sum is 60)
-    //
-    //
-    //         // collect all suits DHCS
-    //         $this->suitsRow .= substr(session($row . $column),23,1);
-    //         // collect all values 02-14
-    //         $this->valuesRow .= substr(session($row . $column),21,2);
-    //     }
-    //         // after each row, check what score
-    //
-    //         // if same characters
-    //
-    //
-    //         }
-    //         if (strlen($this->suits) == 5) {
-    //
-    //         }
-    //     }
-    //
-    //
-    //     // for ($card = 0; $card < 5; $card++) {
-    //     //     $this->suits = $this->suits . substr($this->hand[$card], 23, 1);
-    //     // }
-    //     // return $this->suits;
-    // }
-    //
-    // public function valuesRow() {
-    //     // for ($card = 0; $card < 5; $card++) {
-    //     //     $this->values = $this->values . substr($this->hand[$card], 21, 2);
-    //     // }
-    //     // return $this->values;
 }
