@@ -40,13 +40,14 @@ trait Setup
                 session()->put(
                     $row . $col, '
                     <form method="POST">
-                        <input type="hidden" name="position" value=' . $row . $col . '>
+                        <input type="hidden" name="position" value="' . $row . $col . '">
                         <input type="submit" name="placeCard" value="">
                     </form>
                     '
                 );
             }
         }
+
         // row data (suits array and values array)
         session()->put('dataRow0', []);
         session()->put('dataRow1', []);
@@ -71,6 +72,7 @@ trait Setup
         session()->put('scoreColumn2', ['score' => null, 'feedback' => '']);
         session()->put('scoreColumn3', ['score' => null, 'feedback' => '']);
         session()->put('scoreColumn4', ['score' => null, 'feedback' => '']);
+
     }
 
     public function shuffleDeck(): void {
@@ -138,9 +140,9 @@ trait Setup
 
                     <td><p>' . session('scoreColumn1.feedback') . '</p><p>' . session('scoreColumn1.score') . '</p></td>
 
-                    <td>' . session('scoreColumn2.feedback') . '</p><p>' . session('scoreColumn2.score') . '</p></td>
+                    <td><p>' . session('scoreColumn2.feedback') . '</p><p>' . session('scoreColumn2.score') . '</p></td>
 
-                    <td><p>' . session('scoreColumn3.feedback') . '</p><p>' . session('scoreColumn3.score') . '</p</td>
+                    <td><p>' . session('scoreColumn3.feedback') . '</p><p>' . session('scoreColumn3.score') . '</p></td>
 
                     <td><p>' . session('scoreColumn4.feedback') . '</p><p>' . session('scoreColumn4.score') . '</p></td>
 

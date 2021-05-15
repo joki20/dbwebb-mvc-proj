@@ -53,10 +53,10 @@ trait Scoring
                 // ROW SUITS AND VALUES
                 // if a card is existing (form length has 233)
                 $this->currentSession = session($row . $column);
-                if (strlen($this->currentSession) != 233) {
+                if (strlen($this->currentSession) != 235) {
                     // collect suit HDSC and value 02-14 for row
-                    array_push($this->suitsRow, substr(session($row . $column),23,1));
-                    array_push($this->valuesRow, substr(session($row . $column),21,2));
+                    array_push($this->suitsRow, substr($this->currentSession,23,1));
+                    array_push($this->valuesRow, substr($this->currentSession,21,2));
                 }
 
                 // ROW SAVE AND SCORE DATA
@@ -83,10 +83,10 @@ trait Scoring
                 // ROW SUITS AND VALUES
                 // if a card is existing (form length has 233)
                 $this->currentSession = session($row . $column);
-                if (strlen($this->currentSession) != 233) {
+                if (strlen($this->currentSession) != 235) {
                     // collect suit HDSC and value 02-14 for column
-                    array_push($this->suitsColumn, substr(session($row . $column),23,1));
-                    array_push($this->valuesColumn, substr(session($row . $column),21,2));
+                    array_push($this->suitsColumn, substr($this->currentSession,23,1));
+                    array_push($this->valuesColumn, substr($this->currentSession,21,2));
                 }
 
                 // COLUMN SAVE AND SCORE DATA
@@ -106,6 +106,10 @@ trait Scoring
         }
     }
 
+    public function checkSessions() {
+
+    }
+
     public function scoreFullHand($type) {
        // type is string dataRowX/dataColumnX array with suits. Used with session()->put()
        // scoreSession[0] is suits, scoreSession[1] is values
@@ -119,7 +123,7 @@ trait Scoring
 
        // check if consecutive numbers
        for ($i = 0; $i < 4; $i++) {
-           if ($this->sortedValues[$i+1] != $this->sortedValues[$i] + 1) {
+           if (intval($this->sortedValues[$i+1]) != intval($this->sortedValues[$i]) + 1) {
                $this->consecutiveArray = false;
            }
        }

@@ -33,7 +33,7 @@ $uri = $_SERVER["REQUEST_URI"]; // link to this file
         <?php foreach ($navbar as $item) :
             $selected = $uri == $item['controller'] ? "selected" : null;
             ?>
-            <li class="<?= $selected ?>"><a href="<?= $item["controller"] ?>"><?= $item["text"] ?></a></li>
+            <a href="<?= $item["controller"] ?>" class="<?= $selected ?>"><li><?= $item["text"] ?></li></a>
         <?php endforeach; ?>
         </ul>
     </nav>

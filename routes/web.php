@@ -20,6 +20,8 @@ use App\Http\Controllers\HelloWorldController;
 |
 */
 
+
+
 // Added for mos example code
 Route::get('/hello-world', function () {
     echo "Hello World";

@@ -33,9 +33,10 @@ nav ul {
     border-bottom: 2px solid black;
     background: linear-gradient(180deg, rgba(182,180,20,1) 0%, rgba(224,253,31,1) 84%);
     padding-top: 0;
+    padding: 0;
 }
 
-nav li {
+nav a {
     flex: 1;
     width: 100%;
     text-align: center;
@@ -49,7 +50,7 @@ nav li:first-child {
     border-left: none;
 }
 
-nav li.selected {
+nav a.selected {
     background-color: black;
     color: white;
 }
@@ -140,7 +141,7 @@ tr td:nth-child(7) {
 }
 
 tr td:nth-child(6) {
-    color: white;
+    color: #fff;
 }
 
 tr td:nth-child(7) {
@@ -152,11 +153,13 @@ tr td:nth-child(7) {
 
 tr:nth-child(6) {
     background-color: rgb(25,141,47);
+    color: #fff;
 }
 
 tr:nth-child(6) td {
     border-bottom: 0;
     border-right: 0;
+    
 }
 
 div.cardstack {
@@ -188,7 +191,9 @@ div.enterName input[type="submit"] {
     font-weight: bold;
     padding: 10px;
     background: rgb(182,180,20);
-    background: linear-gradient(180deg, rgba(182,180,20,1) 0%, rgba(224,253,31,1) 84%);
+    background: white;
+    border: red 4px dashed;
+    cursor: pointer
 }
 
 .totalScore {
