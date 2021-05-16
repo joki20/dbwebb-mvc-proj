@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Joki20\Http\Controllers;
 use Joki20\Http\Controllers\Deck;
+use Joki20\Models\Pokerhighscore;
 
 trait Setup
 {
@@ -197,7 +198,6 @@ trait Setup
 
         // if last card placed, write to database
        session()->put('round', session('round') + 1);
-
     }
 
     public function storeToDatabase() {
@@ -205,9 +205,10 @@ trait Setup
        if (session('round') == 25) {
            // create Highscore instance
            $highscore = new Pokerhighscore();
+
            // insert into database
            $highscore->score = session('totalScore');
-           $highscore->player = session('player');
+           $highscore->player = session('name');
            $highscore->count_nothing = session('count.nothing');
            $highscore->count_pair = session('count.pair');
            $highscore->count_twopairs = session('count.twopairs');

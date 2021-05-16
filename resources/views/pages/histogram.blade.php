@@ -6,42 +6,39 @@
 
 declare(strict_types=1);
 
+use Joki20\Http\Controllers\Histogram;
 use Joki20\Models\Pokerhighscore; // database
-use Joki20\Http\Controllers\Highscore;
-
-// Book class
 
 ?>
 
-<h1>Poker Squares Highscore</h1>
+<h1>Poker Squares Histogram</h1>
 
 <?php
 
 $pokerhighscores = Pokerhighscore::all();
-
-$scoreDesc = $pokerhighscores->sortByDesc('score');
-
 $rowCount = count($pokerhighscores);
 
+$histogram = new Histogram();
+$histogramArray = $histogram->getSerie();
+
+
 if ($rowCount == 0) {
-    print_r('<p>No scores yet</p>');
+    print_r('<p>No data to show yet</p>');
 } else {
     ?>
-        <table id="highscore">
+        <table id="histogram">
             <thead>
                 <tr>
-                    <th>Score</th>
-                    <th>Player</th>
+                    <th colspan="2">Histogram</th>
                 </tr>
             </thead>
             <tbody>
         <?php
 
-        foreach ($scoreDesc as $row) { ?>
+        foreach ($histogramArray as $hand) { ?>
             <tr>
-                <td><?= $row->score ?></td>
-                <td><?= $row->player ?></td>
-            </tr>
+                <td><?= $hand[0] ?></td>
+                <td><?= $hand[1] ?></tr>
         <?php }; ?>
             </tbody>
         </table>

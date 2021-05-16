@@ -49,6 +49,10 @@ Route::get('/highscore', function () {
     return view('highscore');
 });
 
+Route::get('/histogram', function () {
+    return view('histogram');
+});
+
 Route::get('/hello', [HelloWorldController::class, 'hello']);
 Route::get('/hello/{message}', [HelloWorldController::class, 'hello']);
 

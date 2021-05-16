@@ -8,17 +8,17 @@ CREATE TABLE IF NOT EXISTS pokerhighscores
 (
     id integer not null auto_increment primary key, 
     player char(30) not null,
-    finalscore char(40) not null,
-    count_nothing integer not null,
-    count_pair integer not null,
-    count_twopairs integer not null,
-    count_threeofakind integer not null,
-    count_straight integer not null,
-    count_flush integer not null,
-    count_fullhouse integer not null,
-    count_fourofakind integer not null,
-    count_straightflush integer not null,
-    count_royalstraightflush integer not null
+    score integer default 0,
+    count_nothing integer default 0,
+    count_pair integer default 0,
+    count_twopairs integer default 0,
+    count_threeofakind integer default 0,
+    count_straight integer default 0,
+    count_flush integer default 0,
+    count_fullhouse integer default 0,
+    count_fourofakind integer default 0,
+    count_straightflush integer default 0,
+    count_royalstraightflush integer default 0
 );
 -- empty table
 -- DELETE FROM pokerhighscores;

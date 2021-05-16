@@ -23,9 +23,11 @@ declare(strict_types=1);
     ["controller" => "/",       "text" => "Home"],
     ["controller" => "/pokersquares",    "text" => "Play"],
     ["controller" => "/highscore",      "text" => "Highscore"],
+    ["controller" => "/histogram",      "text" => "Histogram"],
 ];
 
 $uri = $_SERVER["REQUEST_URI"]; // link to this file
+
 
 ?>
     <nav>
