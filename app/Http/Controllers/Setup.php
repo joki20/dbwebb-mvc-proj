@@ -20,7 +20,6 @@ trait Setup
     private ?string $pos = '';
 
     public function name() {
-
         return "<div class='enterName'><form method='POST' autocomplete='off'>
                 <input type='text' name='setName' placeholder='Name' minlength=3 onfocus=this.placeholder = required >
                 <input type='submit' value='GO'>
@@ -34,17 +33,27 @@ trait Setup
         session()->put('name', $_POST['setName']);
         session()->put('points', 0);
         session()->put('round', 0);
+        // initialize session grid
+        session()->put('grid', [
+            '00' => '', '01' => '', '02' => '', '03' => '', '04' => '', '05' => '', '06' => '',
+            '10' => '', '11' => '', '12' => '', '13' => '', '14' => '', '15' => '', '16' => '',
+            '20' => '', '21' => '', '22' => '', '23' => '', '24' => '', '25' => '', '26' => '',
+            '30' => '', '31' => '', '32' => '', '33' => '', '34' => '', '35' => '', '36' => '',
+            '40' => '', '41' => '', '42' => '', '43' => '', '44' => '', '45' => '', '46' => '',
+            '50' => '', '51' => '', '52' => '', '53' => '', '54' => '', '55' => '', '56' => ''
+        ]);
         // create sessions 00-06, 10-14, ... 40-44 with button for card placement
         for ($row = 0; $row < 5; $row++) {
             for ($col = 0; $col < 5; $col++) {
-                session()->put(
-                    $row . $col, '
+                $cell = strval($row) . strval($col);
+                $form = '
                     <form method="POST">
-                        <input type="hidden" name="position" value="' . $row . $col . '">
+                        <input type="hidden" name="position" value="' . $cell . '">
                         <input type="submit" name="placeCard" value="">
                     </form>
-                    '
-                );
+                    ';
+                // session()->put('counter', ['countStraight' => $this->countStraight]);
+                session()->put('grid.' . strval($cell), $form);
             }
         }
 
@@ -73,16 +82,18 @@ trait Setup
         session()->put('scoreColumn3', ['score' => null, 'feedback' => '']);
         session()->put('scoreColumn4', ['score' => null, 'feedback' => '']);
         // needs to be set also here (also set in Scoring) since setup
-        session()->put('countNothing', 0);
-        session()->put('countPair', 0);
-        session()->put('countTwopairs', 0);
-        session()->put('countThreeofakind', 0);
-        session()->put('countStraight', 0);
-        session()->put('countFlush', 0);
-        session()->put('countFullhouse', 0);
-        session()->put('countFourofakind', 0);
-        session()->put('countStraightflush', 0);
-        session()->put('countRoyalstraightflush', 0);
+        session()->put('count', [
+            'nothing' => 0,
+            'pair' => 0,
+            'twopairs' => 0,
+            'threeofakind' => 0,
+            'straight' => 0,
+            'flush' => 0,
+            'fullhouse' => 0,
+            'fourofakind' => 0,
+            'straightflush' => 0,
+            'royalstraightflush' => 0,
+        ]);
     }
 
     public function shuffleDeck(): void {
@@ -129,11 +140,11 @@ trait Setup
             if ($row < 5) {
                 $this->cells .= '
                 <tr>
-                    <td>' . session($row . '0') . '</td>
-                    <td>' . session($row . '1') . '</td>
-                    <td>' . session($row . '2') . '</td>
-                    <td>' . session($row . '3') . '</td>
-                    <td>' . session($row . '4') . '</td>
+                    <td>' . session('grid.' . $row . '0') . '</td>
+                    <td>' . session('grid.' . $row . '1') . '</td>
+                    <td>' . session('grid.' . $row . '2') . '</td>
+                    <td>' . session('grid.' . $row . '3') . '</td>
+                    <td>' . session('grid.' . $row . '4') . '</td>
                     <td><br><p>' . session('scoreRow' . $row . '.feedback') . '</p><p>' . session('scoreRow' . $row . '.score')  . '</p></td>';
                     // show stack if still rounds left
                 if ($row == 0 && session('round') < 25) {
@@ -182,7 +193,7 @@ trait Setup
         session()->put('deck', $arr);
         // 2. place card at correct place
         $pos = $_POST['position'];
-        session()->put($pos, $currentCard);
+        session()->put('grid.' . $pos, $currentCard);
 
         // if last card placed, write to database
        session()->put('round', session('round') + 1);
@@ -197,16 +208,16 @@ trait Setup
            // insert into database
            $highscore->score = session('totalScore');
            $highscore->player = session('player');
-           $highscore->count_nothing = session('countNothing');
-           $highscore->count_pair = session('countPair');
-           $highscore->count_twopair = session('countTwopairs');
-           $highscore->count_threeofakind = session('countThreeofakind');
-           $highscore->count_straight = session('countStraight');
-           $highscore->count_flush = session('countflush');
-           $highscore->count_fullhouse = session('countFullhouse');
-           $highscore->count_fourofakind = session('countFourofakind');
-           $highscore->count_straightflush = session('countStraightflush');
-           $highscore->count_royalstraightflush = session('countRoyalstraightflush');
+           $highscore->count_nothing = session('count.nothing');
+           $highscore->count_pair = session('count.pair');
+           $highscore->count_twopairs = session('count.twopairs');
+           $highscore->count_threeofakind = session('count.threeofakind');
+           $highscore->count_straight = session('count.straight');
+           $highscore->count_flush = session('count.flush');
+           $highscore->count_fullhouse = session('count.fullhouse');
+           $highscore->count_fourofakind = session('count.fourofakind');
+           $highscore->count_straightflush = session('count.straightflush');
+           $highscore->count_royalstraightflush = session('count.royalstraightflush');
            // insert name
            // save to db
            $highscore->save();

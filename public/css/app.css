@@ -215,7 +215,7 @@ div.enterName input[type="submit"] {
 
 .cardstack, .hand {
  position: relative;
- height: 9.6em;
+ height: 9.5em;
  padding-right: 0;
  border: 2px solid #695d39;
  border-radius: .5em;                       /* omitted -moz- and -webkit- hacks */

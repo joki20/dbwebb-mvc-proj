@@ -57,24 +57,26 @@ trait Scoring
         session()->put('dataColumn4', []);
         // counting times of each result for highscore list
         // has to reset to 0 each time score is calculated, and not null according to database
-        session()->put('countNothing', 0);
-        session()->put('countPair', 0);
-        session()->put('countTwopairs', 0);
-        session()->put('countThreeofakind', 0);
-        session()->put('countStraight', 0);
-        session()->put('countFlush', 0);
-        session()->put('countFullhouse', 0);
-        session()->put('countFourofakind', 0);
-        session()->put('countStraightflush', 0);
-        session()->put('countRoyalstraightflush', 0);
+        session()->put('count', [
+            'nothing' => 0,
+            'pair' => 0,
+            'twoPairs' => 0,
+            'threeofakind' => 0,
+            'straight' => 0,
+            'flush' => 0,
+            'fullhouse' => 0,
+            'fourofakind' => 0,
+            'straightflush' => 0,
+            'royalstraightflush' => 0,
+        ]);
 
         // LOOP FOR EACH ROW
         for ($row = 0; $row < 5; $row++) {
             for ($column = 0; $column < 5; $column++) {
                 // initial length is 0, if not then session contians card
                 // ROW SUITS AND VALUES
-                // if a card is existing (form length has 233)
-                $this->currentSession = session($row . $column);
+                // if a card is existing (form length has 235)
+                $this->currentSession = session('grid.' . $row . $column);
                 if (strlen($this->currentSession) != 235) {
                     // collect suit HDSC and value 02-14 for row
                     array_push($this->suitsRow, substr($this->currentSession,23,1));
@@ -104,7 +106,7 @@ trait Scoring
             for ($row = 0; $row < 5; $row++) {
                 // ROW SUITS AND VALUES
                 // if a card is existing (form length has 233)
-                $this->currentSession = session($row . $column);
+                $this->currentSession = session('grid.' . $row . $column);
                 if (strlen($this->currentSession) != 235) {
                     // collect suit HDSC and value 02-14 for column
                     array_push($this->suitsColumn, substr($this->currentSession,23,1));
@@ -172,19 +174,20 @@ trait Scoring
                 if ($this->sortedValues[0] == "10") {
                     session()->put('score' . $type, ['score' => 100, 'feedback' => 'ROYAL STRAIGHT FLUSH']);
                     $this->countRoyalstraightflush++;
-                    session()->put('countRoyalstraightflush', $this->countRoyalstraightflush);
+                    session()->put('count.royalstraightflush', $this->countRoyalstraightflush);
+
                 // STRAIGHT FLUSH
                 } else {
                     session()->put('score' . $type, ['score' => 75, 'feedback' => 'STRAIGHT FLUSH']);
                     $this->countStraightflush++;
-                    session()->put('countStraightflush', $this->countStraightflush);
+                    session()->put('count.straightflush', $this->countStraightflush);
                 }
             }
             // FLUSH
             elseif ($this->consecutiveArray == false) {
                 session()->put('score' . $type, ['score' => 20, 'feedback' => 'FLUSH']);
                 $this->countFlush++;
-                session()->put('countFlush', $this->countFlush);
+                session()->put('count.Flush', $this->countFlush);
             }
         }
 
@@ -207,40 +210,45 @@ trait Scoring
             if (in_array(4, $this->occurrencesValues)) {
                 session()->put('score' . $type, ['score' => 50, 'feedback' => 'FOUR OF A KIND']);
                 $this->countFourofakind++;
-                session()->put('countFourofakind', $this->countFourofakind);
+                session()->put('count.fourofakind', $this->countFourofakind);
+
                 // FULL HOUSE
             } elseif (in_array(3, $this->occurrencesValues) && in_array(2, $this->occurrencesValues)) {
                 session()->put('score' . $type, ['score' => 25, 'feedback' => 'FULL HOUSE']);
                 $this->countFullhouse++;
-                session()->put('countFullhouse', $this->countFullhouse);
+                session()->put('count.fullhouse', $this->countFullhouse);
+
                 // 3 OF A KIND
             } elseif (in_array(3, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
                 session()->put('score' . $type, ['score' => 10, 'feedback' => 'THREE OF A KIND']);
                 $this->countThreeofakind++;
-                session()->put('countThreeofakind', $this->countThreeofakind);
+                session()->put('count.threeofakind', $this->countThreeofakind);
+
                 // 2 PAIRS OR 1 PAIR
             } elseif (in_array(2, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
                 // 2 PAIRS
                 if (array_count_values($this->occurrencesValues)[2] == 4) {
                     session()->put('score' . $type, ['score' => 5, 'feedback' => '2 PAIRS']);
                     $this->countTwopairs++;
-                    session()->put('countStraightflush', $this->countStraightflush);
+                    session()->put('count.twopairs', $this->countTwopairs);
+
                     // 1 PAIR
                 } elseif (array_count_values($this->occurrencesValues)[2] == 2) {
                     session()->put('score' . $type, ['score' => 2, 'feedback' => 'PAIR']);
                     $this->countPair++;
-                    session()->put('countPair', $this->countPair);
+                    session()->put('count.pair', $this->countPair);
+
                 }
                 // CHECK FOR STRAIGHT
             } elseif ($this->consecutiveArray == true) {
                 session()->put('score' . $type, ['score' => 15, 'feedback' => 'STRAIGHT']);
                 $this->countStraight++;
-                session()->put('countStraight', $this->countStraight);
-                // no points
+                session()->put('count.straight', $this->countStraight);
+
+                // NO POINTS
             } elseif ($this->consecutiveArray == false) {
                 session()->put('score' . $type, ['score' => 0, 'feedback' => 'NOTHING']);
                 $this->countNothing++;
-                session()->put('countNothing', $this->countNothing);
             }
         }
     }

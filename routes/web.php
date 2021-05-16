@@ -20,7 +20,7 @@ use App\Http\Controllers\HelloWorldController;
 |
 */
 
-
+Route::group(['middleware' => ['web']], function () {
 
 // Added for mos example code
 Route::get('/hello-world', function () {
@@ -49,39 +49,7 @@ Route::get('/highscore', function () {
     return view('highscore');
 });
 
-// Route::get('/info', function () {
-//     return view('info');
-// });
-// Route::get('/dice', function () {
-//     return view('dice');
-// });
-// Route::get('/game21', function () {
-//     return view('game21');
-// });
-// Route::post('/game21', function () {
-//     return view('game21');
-// });
-//
-// Route::get('/yatzy', function () {
-//     return view('yatzy');
-// });
-// Route::post('/yatzy', function () {
-//     return view('yatzy');
-// });
-//
-// Route::get('/books', function () {
-//     return view('books');
-// });
-//
-// Route::get('/highscore', function () {
-//     return view('highscore');
-// });
-//
-// Route::get('/message', function () {
-//     return view('message');
-// });
-
-//Route::post('/game21', [Game21::class, 'game21']);
-
 Route::get('/hello', [HelloWorldController::class, 'hello']);
 Route::get('/hello/{message}', [HelloWorldController::class, 'hello']);
+
+});
