@@ -7,9 +7,6 @@
 declare(strict_types=1);
 
 use Joki20\Models\Pokerhighscore; // database
-use Joki20\Http\Controllers\Highscore;
-
-// Book class
 
 ?>
 

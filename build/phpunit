@@ -1,59 +1,15 @@
 PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
 
-..........<form method="POST" id="form-roll">
-                    <input
-                        type="submit"
-                        name="status"
-                        value="Starta spelet"
-                        id="form-roll"
-                        >
-                </form>
-                <form method="POST" id="form-roll">
-                    <input
-                        type="submit"
-                        name="status"
-                        value="Starta spelet"
-                        id="form-roll"
-                        >
-                </form>
-                <form method="POST" id="form-roll">
-                    <input
-                        type="submit"
-                        name="status"
-                        value="Starta spelet"
-                        id="form-roll"
-                        >
-                </form>
-                3<p>SUMMA: 3</p>6<p>SUMMA: 9</p><form method="POST" id="form-roll">
-                    <input
-                        type="submit"
-                        name="status"
-                        value="Starta spelet"
-                        id="form-roll"
-                        >
-                </form>
-                <form method="POST" id="form-roll">
-                    <input
-                        type="submit"
-                        name="status"
-                        value="Starta spelet"
-                        id="form-roll"
-                        >
-                </form>
-                <form method="POST" id="form-roll">
-                    <input
-                        type="submit"
-                        name="status"
-                        value="Starta spelet"
-                        id="form-roll"
-                        >
-                </form>
-                ..<p>SUMMA: 0</p>.....                                                 17 / 17 (100%)
+.....                                                               5 / 5 (100%)<div class='enterName'><form method='POST' autocomplete='off'>
+                <input type='text' name='setName' placeholder='Name' minlength=3 onfocus=this.placeholder = required >
+                <input type='submit' value='GO'>
+            </form></div>
+        
 
-Time: 00:01.900, Memory: 36.00 MB
+Time: 00:00.782, Memory: 38.00 MB
 
-OK (17 tests, 40 assertions)
+OK (5 tests, 7 assertions)
 
-Generating code coverage report in Clover XML format ... done [00:00.048]
+Generating code coverage report in Clover XML format ... done [00:00.012]
 
-Generating code coverage report in HTML format ... done [00:00.673]
+Generating code coverage report in HTML format ... done [00:00.339]
