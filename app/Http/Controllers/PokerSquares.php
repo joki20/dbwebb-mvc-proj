@@ -39,6 +39,6 @@ class PokerSquares
         isset($_POST['placeCard']) ? $this->prepareStack() : null;
         isset($_POST['placeCard']) ? $this->fullHandsData() : null;
         isset($_POST['placeCard']) ? print_r($this->displayGrid()) : null;
-        isset($_POST['placeCard']) ? $this->storeToDatabase()) : null;
+        isset($_POST['placeCard']) ? $this->storeToDatabase() : null;
     }
 }
