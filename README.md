@@ -18,16 +18,67 @@ http://www.student.bth.se/~joki20/dbwebb-kurser/mvc/me/proj/public/
 
 You have a grid consisting of 5x5 empty cells. Each turn a new card in the deck shows up and you have to click on one of the empty cells to place the card there. As soon as a row or column contains five cards, points for that poker hand is valued accordingly:
 
-  HAND                  Pts   EXPLAINATION
-  Royal Straight Flush  100   10 J Q K A in same suit
-  Straight Flush         75   Straight in same suit
-  Four of a kind         50   Four of same value
-  Full house             25   Three of a kind + Two Pairs
-  Flush                  20   All cards in same suit
-  Straight               15   Cards with consecutive value
-  Three of a kind        10   Three of same value
-  Two pairs               5   Two different sets of cards, each with equal value
-  Pair                    2   Two cards with equal value
+<table>
+<thead>
+<th>HAND</th>
+<th>POINTS</th>
+<th>EXPLAINATION</th>
+</thead>
+<tbody>
+
+<tr>
+<td>Royal Straight Flush</td>
+<td>100</td>
+<td>10 J Q K A in same suit</td>
+</tr>
+
+<tr>
+<td>Straight Flush</td>
+<td>75</td>
+<td>Straight in same suit</td>
+</tr>
+
+<tr>
+<td>Four of a kind</td>
+<td>50</td>
+<td>Four of same value</td>
+</tr>
+
+<tr>
+<td>Full house</td>
+<td>25</td>
+<td>Three of the same value + Two pairs</td>
+</tr>
+
+<tr>
+<td>Flush</td>
+<td>20</td>
+<td>All cards in the same suit</td>
+</tr>
+
+<tr>
+<td>Straight</td>
+<td>15</td>
+<td>Cards with consecutive values</td>
+</tr>
+
+<tr>
+<td>Three of a kind</td>
+<td>10</td>
+<td>Three of the same value</td>
+</tr>
+
+<tr>
+<td>Two pairs</td>
+<td>5</td>
+<td>Two different pairs, each with same value</td>
+</tr>
+
+<tr>
+<td>Two pairs</td>
+<td>5</td>
+<td>Two cards with same value</td>
+</tr>
 
 For a hand you can only score one of above. For example, If you have four of a kind, you will not also score for three of a kind.
 
