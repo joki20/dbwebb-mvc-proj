@@ -1,111 +1,40 @@
-[![Build Status](https://travis-ci.com/joki20/dbwebb-mvc-ci.svg?branch=master)](https://travis-ci.com/joki20/dbwebb-mvc-ci)
+[![Build Status](https://travis-ci.com/joki20/dbwebb-mvc-proj.svg?branch=master)](https://travis-ci.com/joki20/dbwebb-mvc-proj)
 
-[![Build Status](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-ci/badges/build.png?b=master)](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-ci/build-status/master)
+# Poker Squares
 
-[![Code Coverage](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-ci/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-ci/?branch=master)
+## Introduction
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-ci/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-ci/?branch=master)
+In this project for the course MVC in web programming spring -21 I've made a game called Poker Squares. The aim of the game is to gather as many points as possible by playing out cards and create valuable poker hands. Score high and you might place yourself on top of the highscore list!
 
-Integrera ditt repo med Travis och Scrutinizer
-===============================
+<div><img src="public/images/pokersquares.png"
+     alt="Poker Squares
+     style; text-align: center" /></div>
 
-Detta är en kort förenklad guide till hur du integrerar ditt Git repo på GitHub/GitLab med byggtjänsterna Travis och Scrutinizer.
+You can try the game here:
 
-Syftet är främst att visa de konfigurationsfiler som fungerar för Travis respektive Scrutinizer.
+http://www.student.bth.se/~joki20/dbwebb-kurser/mvc/me/proj/public/
 
-I övningen "[Integrera din packagist modul med verktyg för automatisk test och validering](kunskap/integrera-din-packagist-modul-med-verktyg-for-automatisk-test-och-validering)" finns en mer komplett bild av hur du gör.
+#### Rules
 
+You have a grid consisting of 5x5 empty cells. Each turn a new card in the deck shows up and you have to click on one of the empty cells to place the card there. As soon as a row or column contains five cards, points for that poker hand is valued accordingly:
 
+  HAND                  Pts   EXPLAINATION
+  Royal Straight Flush  100   10 J Q K A in same suit
+  Straight Flush         75   Straight in same suit
+  Four of a kind         50   Four of same value
+  Full house             25   Three of a kind + Two Pairs
+  Flush                  20   All cards in same suit
+  Straight               15   Cards with consecutive value
+  Three of a kind        10   Three of same value
+  Two pairs               5   Two different sets of cards, each with equal value
+  Pair                    2   Two cards with equal value
 
-Förutsättning
--------------------------------
+For a hand you can only score one of above. For example, If you have four of a kind, you will not also score for three of a kind.
 
-Du har ett Git repo som du huserar på GitHub/GitLab.
+#### Highscore
 
-I ditt repo kan du installera en utvecklingsmiljö och köra tester mot repo. Detta kan du ha implementerat i tex i en Makefile.
+After you finished a game, you can go watch the highscore list and see where you placed. The list contains the name you chose at the start of the game and your total sum of all ten hands.
 
-```
-# Installera en utvecklingsmiljö
-make install
+#### Histogram
 
-# Bra vid felsökning för att visa vilka versioner som är installerade
-make check
-
-# Köra enhetstesterna och generera kodtäckning till filen
-# "build/coverage.clover" (eller liknande)
-make phpunit
-
-# Köra alla testerna
-make test
-```
-
-Att integrera byggtjänsterna mot enhetstester som går mot en databas är ren överkurs och inget som hanteras.
-
-
-
-Travis
--------------------------------
-
-Tjänsten är [Travis CI](https://www.travis-ci.com/) (notera att det är .com och inte .org).
-
-Du kan använda gitt konto från GitHub (eller liknande) för att logga in på Travis.
-
-Länka ihop Travis med dina repon på GitHub/GitLab.
-
-Glöm inte [dokumentationen](https://docs.travis-ci.com/).
-
-Lägg till en konfigurationsfil `.travis.yml` (se [exempel på konfigurationsfil för Travis](https://github.com/dbwebb-se/mvc/blob/main/example/ci/.travis.yml)) i ditt repo.
-
-Läs mer om [konfigurationsfilen för PHP](https://docs.travis-ci.com/user/languages/php/).
-
-Justera vilka versioner av PHP du vill testa mot och hur du installerar utvecklingsmiljön och kör testerna.
-
-Committa och pusha till GitHub/GitLab.
-
-Travis kommer nu att bli notifierad och checkar ut ditt repo och utför instruktionerna enligt konfigurationsfilen.
-
-Exempel på hur en badge kan se ut för ett repo som byggs på Travis.
-
-[![Build Status](https://www.travis-ci.com/canax/router.svg?branch=master)](https://www.travis-ci.com/canax/router)
-
-
-
-Scrutinizer
--------------------------------
-
-Tjänsten är [Scrutinizer CI](https://scrutinizer-ci.com/).
-
-Du kan använda gitt konto från GitHub (eller liknande) för att logga in på Scrutinizer.
-
-Länka ihop Scrutinizer med ett av dina repon på GitHub/GitLab.
-
-Glöm inte [dokumentationen](https://scrutinizer-ci.com/docs/).
-
-Lägg till en konfigurationsfil `.scrutinizer.yml` (se [exempel på konfigurationsfil för Scrutinizer](https://github.com/dbwebb-se/mvc/blob/main/example/ci/.scrutinizer.yml)) i ditt repo.
-
-Läs mer om [konfigurationsfilen för PHP](https://scrutinizer-ci.com/docs/guides/php/continuous-integration-deployment).
-
-Justera vilken versioner av PHP du vill testa mot och hur du installerar utvecklingsmiljön och kör testerna. Dubbelkolla även vilka sökvägar som exkluderas från körningen.
-
-Committa och pusha till GitHub/GitLab.
-
-Scrutinizer kommer nu att bli notifierad och checkar ut ditt repo och utför instruktionerna enligt konfigurationsfilen.
-
-Exempel på hur olika badges kan se ut för ett repo som byggs på Scrutinizer.
-
-[![Build Status](https://scrutinizer-ci.com/g/canax/database/badges/build.png?b=master)](https://scrutinizer-ci.com/g/canax/database/build-status/master) [![Code Coverage](https://scrutinizer-ci.com/g/canax/router/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/canax/router/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/canax/database/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/canax/database/?branch=master)
-
-
-
-Övrigt och felsökning
--------------------------------
-
-Varje tjänst jobbar mot de triggers de får av GitHub/GitLab.
-
-Du kan manuellt trigga en build eller rebuild av en specifik commit.
-
-Bekanta dig med de loggar som tjänsterna producerar, de kan hjälpa dig att förstå varför din build misslyckas.
-
-Vissa tjänster tillåter att man kopplar upp sig med en ssh-inloggning till ett pågående bygge, det kan vara en bra möjlighet att felsöka och dubbelkolla hur miljön är på byggservern.
-
-Formatet för konfigurationsfilerna är [YAML](https://en.wikipedia.org/wiki/YAML).
+In the histogram you can see the distribution of all previous hands played, in every game played (10 hands for each game). In this way you can analyze how common it is to score different kind of hands. For example, in time you can expect a Straight Flush to score less often compared to three of a kind since it is much harder to get.
