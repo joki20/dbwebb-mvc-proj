@@ -72,7 +72,17 @@ trait Setup
         session()->put('scoreColumn2', ['score' => null, 'feedback' => '']);
         session()->put('scoreColumn3', ['score' => null, 'feedback' => '']);
         session()->put('scoreColumn4', ['score' => null, 'feedback' => '']);
-
+        // needs to be set also here (also set in Scoring) since setup
+        session()->put('countNothing', 0);
+        session()->put('countPair', 0);
+        session()->put('countTwopairs', 0);
+        session()->put('countThreeofakind', 0);
+        session()->put('countStraight', 0);
+        session()->put('countFlush', 0);
+        session()->put('countFullhouse', 0);
+        session()->put('countFourofakind', 0);
+        session()->put('countStraightflush', 0);
+        session()->put('countRoyalstraightflush', 0);
     }
 
     public function shuffleDeck(): void {
@@ -177,15 +187,30 @@ trait Setup
         // if last card placed, write to database
        session()->put('round', session('round') + 1);
 
-        // if end of game, add points to highscore table
-       // if (session('timesScored') == 6) {
-       //     // create Highscore instance
-       //     $highscores = new Highscore();
-       //     // insert score
-       //     $highscores->score = session('sum');
-       //     // save to db
-       //     $highscores->save();
-       // }
+    }
+
+    public function storeToDatabase() {
+        // if end of game, add game data to highscore table
+       if (session('round') == 25) {
+           // create Highscore instance
+           $highscore = new Pokerhighscore();
+           // insert into database
+           $highscore->score = session('totalScore');
+           $highscore->player = session('player');
+           $highscore->count_nothing = session('countNothing');
+           $highscore->count_pair = session('countPair');
+           $highscore->count_twopair = session('countTwopairs');
+           $highscore->count_threeofakind = session('countThreeofakind');
+           $highscore->count_straight = session('countStraight');
+           $highscore->count_flush = session('countflush');
+           $highscore->count_fullhouse = session('countFullhouse');
+           $highscore->count_fourofakind = session('countFourofakind');
+           $highscore->count_straightflush = session('countStraightflush');
+           $highscore->count_royalstraightflush = session('countRoyalstraightflush');
+           // insert name
+           // save to db
+           $highscore->save();
+       }
     }
 
 }

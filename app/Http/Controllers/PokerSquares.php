@@ -36,9 +36,9 @@ class PokerSquares
         isset($_POST['setName']) ? print_r($this->displayGrid()) : null;
         // IF CARD WAS PLACED ($_POST begins with 'place')
         isset($_POST['placeCard']) ? $this->placeCard() : null;
-        // isset($_POST['placeCard']) ? $this->checkSessions() : null;
         isset($_POST['placeCard']) ? $this->prepareStack() : null;
         isset($_POST['placeCard']) ? $this->fullHandsData() : null;
         isset($_POST['placeCard']) ? print_r($this->displayGrid()) : null;
+        isset($_POST['placeCard']) ? $this->storeToDatabase()) : null;
     }
 }

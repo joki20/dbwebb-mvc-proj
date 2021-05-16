@@ -93,6 +93,10 @@ tr {
     border: 0;
 }
 
+tr:first-child td {
+    border-top: 0;
+}
+
 td {
     border: 1px solid rgb(25,141,47);
 }
@@ -159,7 +163,7 @@ tr:nth-child(6) {
 tr:nth-child(6) td {
     border-bottom: 0;
     border-right: 0;
-    
+
 }
 
 div.cardstack {

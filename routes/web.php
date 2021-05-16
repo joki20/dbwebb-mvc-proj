@@ -45,6 +45,10 @@ Route::post('/pokersquares', function () {
     return view('pokersquares');
 });
 
+Route::get('/highscore', function () {
+    return view('highscore');
+});
+
 // Route::get('/info', function () {
 //     return view('info');
 // });

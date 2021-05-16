@@ -6,29 +6,30 @@
 
 declare(strict_types=1);
 
-use Joki20\Models\Highscore;
+use Joki20\Models\Pokerhighscore;
 
 // Book class
 
 ?>
 
-<h1>Yatzy Highscore</h1>
+<h1>Poker Squares Highscore</h1>
 
 <?php
 
-$highscores = Highscore::all();
+$pokerhighscores = Pokerhighscore::all();
 
-$scoreDesc = $highscores->sortByDesc('score');
+$scoreDesc = $pokerhighscores->sortByDesc('score');
 
 
 
 
 ?>
 
-<table id="books">
+<table id="highscore">
     <thead>
         <tr>
-            <th>Highscore list</th>
+            <th>Score</th>
+            <th>Player</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@ $scoreDesc = $highscores->sortByDesc('score');
 foreach ($scoreDesc as $row) { ?>
     <tr>
         <td><?= $row->score ?></td>
+        <td><?= $row->player ?></td>
     </tr>
 <?php }; ?>
     </tbody>
