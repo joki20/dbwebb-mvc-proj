@@ -11,7 +11,7 @@ use Joki20\Models\Pokerhighscore; // database
 
 ?>
 
-<h1>Poker Squares Histogram</h1>
+<h1>Histogram</h1>
 
 <?php
 

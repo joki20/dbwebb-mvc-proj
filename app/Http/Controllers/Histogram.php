@@ -53,7 +53,7 @@ class Histogram implements HistogramInterface
 
         for ($hand = 0; $hand < count($this->serie); $hand++) {
             // change second element in each above series to * output
-            $this->serie[$hand][1] = str_repeat("*", $this->serie[$hand][1]);
+            $this->serie[$hand][1] = str_repeat("•", $this->serie[$hand][1]);
         }
 
         return $this->serie;

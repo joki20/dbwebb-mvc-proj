@@ -19,21 +19,22 @@ declare(strict_types=1);
 
 <header>
     <?php
+    $uri = $_SERVER["REQUEST_URI"]; // link to this file
+    $uriFile = basename($uri); // filename.php
+    $uriFile == "public" ? $uriFile = "/" : null;
+
     $navbar = [
     ["controller" => "/",       "text" => "Home"],
-    ["controller" => "/pokersquares",    "text" => "Play"],
-    ["controller" => "/highscore",      "text" => "Highscore"],
-    ["controller" => "/histogram",      "text" => "Histogram"],
+    ["controller" => "pokersquares",    "text" => "Play"],
+    ["controller" => "highscore",      "text" => "Highscore"],
+    ["controller" => "histogram",      "text" => "Histogram"],
 ];
-
-$uri = $_SERVER["REQUEST_URI"]; // link to this file
-
 
 ?>
     <nav>
         <ul>
         <?php foreach ($navbar as $item) :
-            $selected = $uri == $item['controller'] ? "selected" : null;
+            $selected = $uriFile == $item['controller'] ? "selected" : null;
             ?>
             <a href="<?= url($item["controller"]) ?>" class="<?= $selected ?>"><li><?= $item["text"] ?></li></a>
         <?php endforeach; ?>

@@ -13,7 +13,7 @@ use Joki20\Http\Controllers\Highscore;
 
 ?>
 
-<h1>Poker Squares Highscore</h1>
+<h1>Highscore</h1>
 
 <?php
 

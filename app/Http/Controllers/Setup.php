@@ -175,7 +175,7 @@ trait Setup
         }
 
         $this->grid = '
-            <table>
+            <table id="grid">
                 ' . $this->cells . '
             </table>
             ';
