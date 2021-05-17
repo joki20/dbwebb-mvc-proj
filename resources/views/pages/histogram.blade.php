@@ -29,7 +29,9 @@ if ($rowCount == 0) {
         <table id="histogram">
             <thead>
                 <tr>
-                    <th colspan="2">Histogram</th>
+                    <th>Hand</th>
+                    <th>Share</th>
+                    <th>Frequency</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +40,8 @@ if ($rowCount == 0) {
         foreach ($histogramArray as $hand) { ?>
             <tr>
                 <td><?= $hand[0] ?></td>
-                <td><?= $hand[1] ?></tr>
+                <td><?= $hand[1] ?></td>
+                <td><?= $hand[2] ?></tr>
         <?php }; ?>
             </tbody>
         </table>

@@ -37,23 +37,35 @@ class Histogram implements HistogramInterface
         $twopairs = $pokerhighscores->sum('count_twopairs');
         $pair = $pokerhighscores->sum('count_pair');
         $nothing = $pokerhighscores->sum('count_nothing');
+        $sumAll = (
+            $royalstraightflush +
+            $straightflush +
+            $fourofakind +
+            $fullhouse +
+            $flush +
+            $straight +
+            $threeofakind +
+            $twopairs +
+            $pair +
+            $nothing
+        );
 
         $this->serie = [
-            ['Royal straight flush', $royalstraightflush],
-            ['Straight flush', $straightflush],
-            ['Four of a kind', $fourofakind],
-            ['Full house', $fullhouse],
-            ['Flush', $flush],
-            ['Straight', $straight],
-            ['Three of a kind', $threeofakind],
-            ['Two pairs', $twopairs],
-            ['Pair', $pair],
-            ['Nothing', $nothing],
+            ['Royal straight flush', round(($royalstraightflush/$sumAll)*100, 1) . '%', $royalstraightflush],
+            ['Straight flush', round(($straightflush/$sumAll)*100, 1) . '%', $straightflush],
+            ['Four of a kind', round(($fourofakind/$sumAll)*100, 1) . '%',$fourofakind],
+            ['Full house', round(($fullhouse/$sumAll)*100, 1) . '%',$fullhouse],
+            ['Flush', round(($flush/$sumAll)*100, 1) . '%',$flush],
+            ['Straight', round(($straight/$sumAll)*100, 1) . '%',$straight],
+            ['Three of a kind', round(($threeofakind/$sumAll)*100, 1) . '%',$threeofakind],
+            ['Two pairs', round(($twopairs/$sumAll)*100, 1) . '%',$twopairs],
+            ['Pair', round(($pair/$sumAll)*100, 1) . '%',$pair],
+            ['Nothing', round(($nothing/$sumAll)*100, 1) . '%',$nothing],
         ];
 
         for ($hand = 0; $hand < count($this->serie); $hand++) {
-            // change second element in each above series to * output
-            $this->serie[$hand][1] = str_repeat("•", $this->serie[$hand][1]);
+            // change third element with count in each above series to * output
+            $this->serie[$hand][2] = str_repeat("*", $this->serie[$hand][2]);
         }
 
         return $this->serie;
