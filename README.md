@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.com/joki20/dbwebb-mvc-proj.svg?branch=master)](https://travis-ci.com/joki20/dbwebb-mvc-proj)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-proj/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-proj/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-proj/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-proj/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-proj/badges/build.png?b=master)](https://scrutinizer-ci.com/g/joki20/dbwebb-mvc-proj/build-status/master)
 
 # Poker Squares
 
