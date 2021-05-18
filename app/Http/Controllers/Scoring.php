@@ -138,13 +138,11 @@ trait Scoring
        // type is string dataRowX/dataColumnX array with suits. Used with session()->put()
        // scoreSession[0] is suits, scoreSession[1] is values
         $this->scoreSession = session('data' . $type);
-
        // set consecutive to true
         $this->consecutiveArray = true;
         // CREATE COPY ARRAY AND SORT VALUES
         $this->sortedValues = $this->scoreSession[1];
         sort($this->sortedValues);
-
        // check if consecutive numbers
         for ($i = 0; $i < 4; $i++) {
             if (intval($this->sortedValues[$i + 1]) != intval($this->sortedValues[$i]) + 1) {
@@ -157,7 +155,6 @@ trait Scoring
         }
        // END OF SORT
 
-
        // ///////////// SAME SUIT /////////////
        // how many different suits. 1 means all are same
         if (count(array_count_values($this->scoreSession[0])) == 1) {
@@ -167,9 +164,8 @@ trait Scoring
                 if ($this->sortedValues[0] == "10") {
                     session()->put('score' . $type, ['score' => 100, 'feedback' => 'ROYAL STRAIGHT FLUSH']);
                     session()->put('count.royalstraightflush', session('count.royalstraightflush') + 1);
-
                 // STRAIGHT FLUSH
-                } else {
+                } elseif (($this->sortedValues[0] != "10")) {
                     session()->put('score' . $type, ['score' => 75, 'feedback' => 'STRAIGHT FLUSH']);
                     session()->put('count.straightflush', session('count.straightflush') + 1);
                 } // FLUSH
