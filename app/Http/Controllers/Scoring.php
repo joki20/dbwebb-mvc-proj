@@ -16,17 +16,17 @@ trait Scoring
 {
     use Setup;
 
-    private ?string $currentSession = '';
-    private ?array $suitsRow = [];
-    private ?array $valuesRow = [];
-    private ?array $suitsColumn = [];
-    private ?array $valuesColumn = [];
-    private ?array $scoreSession = [];
-    private ?array $sortedValues = [];
-    private ?bool $consecutiveArray;
-    private ?int $times;
-    private ?array $occurrencesSuits = [];
-    private ?array $occurrencesValues = [];
+    private string $currentSession = '';
+    private array $suitsRow = [];
+    private array $valuesRow = [];
+    private array $suitsColumn = [];
+    private array $valuesColumn = [];
+    private array $scoreSession = [];
+    private array $sortedValues = [];
+    private bool $consecutiveArray;
+    private int $times;
+    private array $occurrencesSuits = [];
+    private array $occurrencesValues = [];
 
     public function fullHandsData(): void
     {

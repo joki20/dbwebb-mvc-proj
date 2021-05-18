@@ -15,12 +15,12 @@ trait Setup
 {
     use Deck;
 
-    private ?string $grid = '';
-    private ?string $cells = '';
-    private ?string $row = '';
-    private ?array $arr;
-    private ?string $currentCard = '';
-    private ?string $pos = '';
+    private string $grid = '';
+    private string $cells = '';
+    private string $row = '';
+    private array $arr;
+    private string $currentCard = '';
+    private string $pos = '';
 
     public function name()
     {
