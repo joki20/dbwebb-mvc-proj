@@ -2,8 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="tests/config.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage processUncoveredFiles="true">
     <include>
-        <directory suffix=".php">app/Http</directory>
-        <directory suffix=".php">tests</directory>
+        <directory suffix=".php">app/Http/Controllers</directory>
     </include>
     <report>
         <clover outputFile="build/coverage.clover"/>
