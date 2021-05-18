@@ -9,8 +9,6 @@ declare(strict_types=1);
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
 
-// use Joki20\Http\Controllers\CardInterface;
-
 /**
  * Trait Deck.
  */

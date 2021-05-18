@@ -1,1 +1,0 @@
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Histogram.php:30	Avoid using static access to class '\Joki20\Models\Pokerhighscore' in method 'getSerie'.

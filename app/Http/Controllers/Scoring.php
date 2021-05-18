@@ -23,7 +23,7 @@ trait Scoring
     private array $valuesColumn = [];
     private array $scoreSession = [];
     private array $sortedValues = [];
-    private bool $consecutiveArray;
+    private bool $consecutiveArray = false;
     private int $times;
     private array $occurrencesSuits = [];
     private array $occurrencesValues = [];
@@ -50,7 +50,7 @@ trait Scoring
             'twoPairs' => 0, 'threeofakind' => 0,
             'straight' => 0, 'flush' => 0,
             'fullhouse' => 0, 'fourofakind' => 0,
-            'straightflush' => 0, 'royalstraightflush' => 0,
+            'straightflush' => 0, 'royalstraightflush' => 0
         ]);
     }
 
@@ -71,6 +71,7 @@ trait Scoring
                 // ROW SAVE AND SCORE DATA
                 // if five cards (five suits), push suits and values arrays
                 if ($column == 4 && count($this->suitsRow) == 5) {
+                    // session('dataRow00', [[H,D,C,S,D],[03,05,01,13,10]])
                     session()->push('dataRow' . $row, $this->suitsRow);
                     session()->push('dataRow' . $row, $this->valuesRow);
                     // send array of suits and values for row to score function
@@ -152,9 +153,11 @@ trait Scoring
         $this->countFourofakind = 0;
         $this->countStraightflush = 0;
         $this->countRoyalstraightflush = 0;
+        $this->consecutiveArray = false;
+
        // type is string dataRowX/dataColumnX array with suits. Used with session()->put()
        // scoreSession[0] is suits, scoreSession[1] is values
-        $this->scoreSession = session('data' . $type);
+        $this->scoreSession = session('data' . $type); // i e dataRow21
        // set consecutive to true
         $this->consecutiveArray = true;
         // CREATE COPY ARRAY AND SORT VALUES
@@ -170,6 +173,8 @@ trait Scoring
         if ($this->sortedValues === ["14", "01", "02", "03", "04"]) {
             $this->consecutiveArray = true;
         }
+
+        return $this->sortedValues;
        // END OF SORT
    }
 
