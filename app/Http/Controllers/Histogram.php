@@ -18,6 +18,7 @@ use Joki20\Models\Pokerhighscore;
 class Histogram implements HistogramInterface
 {
     private $serie = [];
+    private int $differentHands;
 
     /**
     * Get the serie.
@@ -64,7 +65,9 @@ class Histogram implements HistogramInterface
             ['Nothing', round(($nothing / $sumAll) * 100, 1) . '%',$nothing],
         ];
 
-        for ($hand = 0; $hand < count($this->serie); $hand++) {
+        $this->differentHands = count($this->serie);
+
+        for ($hand = 0; $hand < $this->differentHands; $hand++) {
             // change third element with count in each above series to * output
             $this->serie[$hand][2] = str_repeat("*", $this->serie[$hand][2]);
         }

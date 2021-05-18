@@ -1,10 +1,1 @@
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Histogram.php:29	Avoid using static access to class '\Joki20\Models\Pokerhighscore' in method 'getSerie'.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Histogram.php:67	Avoid using Joki20\Http\Controllers\count() function in for loops.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\PokerSquares.php:24	The method game() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\PokerSquares.php:24	The method game() has an NPath complexity of 1024. The configured NPath complexity threshold is 200.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:31	The method fullHandsData() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:125	The method scoreFullHand() has a Cyclomatic Complexity of 24. The configured cyclomatic complexity threshold is 10.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:125	The method scoreFullHand() has an NPath complexity of 324. The configured NPath complexity threshold is 200.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:125	The method scoreFullHand() has 104 lines of code. Current threshold is set to 100. Avoid really long methods.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\tests\Unit\HistogramCreateObjectTest.php:44	Avoid using Tests\Unit\count() function in for loops.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\tests\Unit\PokerSquaresCreateObjectTest.php:56	Avoid unused local variables such as '$deck'.
+C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Histogram.php:30	Avoid using static access to class '\Joki20\Models\Pokerhighscore' in method 'getSerie'.

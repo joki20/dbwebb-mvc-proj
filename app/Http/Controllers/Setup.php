@@ -157,7 +157,7 @@ trait Setup
                     // show stack if still rounds left
                 if ($row == 0 && session('round') < 25) {
                     $this->cells .= '<td>' . session('06') . '</td></tr>';
-                } elseif ($row == 0 && session('round') == 25) {
+                } elseif ($row != 0) {
                     $this->cells .= '<td></td></tr>';
                 }
             }

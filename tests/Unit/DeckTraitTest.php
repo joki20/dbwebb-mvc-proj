@@ -9,7 +9,7 @@ use Joki20\Http\Controllers\Setup;
 /**
  * Test cases for class Guess.
  */
-class PokerSquaresCreateObjectTest extends TestCase
+class DeckTraitTest extends TestCase
 {
     // /**
     //  * Construct object and verify that the object is instance of class
@@ -18,18 +18,6 @@ class PokerSquaresCreateObjectTest extends TestCase
     {
         $pokersquares = new PokerSquares();
         $this->assertInstanceOf("\Joki20\Http\Controllers\PokerSquares", $pokersquares);
-    }
-
-    // /**
-    //  * Test empty $_POST array
-    //  */
-    public function testEmptyPost()
-    {
-        $pokersquares = new PokerSquares();
-        $this->assertInstanceOf("\Joki20\Http\Controllers\PokerSquares", $pokersquares);
-
-        $exp = $pokersquares->game();
-        $this->assertEquals($exp, null);
     }
 
     public function testTraitDeckName()
@@ -48,25 +36,12 @@ class PokerSquaresCreateObjectTest extends TestCase
         $this->assertEquals($exp, 2);
     }
 
-    public function testTraitSetupName()
+    public function testTraitDeckReturnDeck()
     {
         $pokersquares = new PokerSquares();
 
-        $exp = strlen($pokersquares->name());
-        $this->assertEquals($exp, 265);
+        $exp = 52;
+        $res = count($pokersquares->returnDeck());
+        $this->assertEquals($exp, $res);
     }
-
-    // public function testTraitSetupShuffleDeck()
-    // {
-    //     $pokersquares = new PokerSquares();
-    //
-    //     $pokersquares->shuffleDeck();
-
-        // $exp = 52;
-        // $res = count(session('deck'));
-        //
-        // $this->assertEquals($exp, 52);
-    //
-    // }
-
 }
