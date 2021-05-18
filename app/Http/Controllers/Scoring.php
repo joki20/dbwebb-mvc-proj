@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
+
 // use Joki20\Http\Controllers\PokerSquares;
 use Joki20\Http\Controllers\Setup;
 
@@ -27,7 +28,8 @@ trait Scoring
     private ?array $occurrencesSuits = [];
     private ?array $occurrencesValues = [];
 
-    public function fullHandsData(): void {
+    public function fullHandsData(): void
+    {
         $this->suitsRow = [];
         $this->valuesRow = [];
         $this->suitsColumn = [];
@@ -69,8 +71,8 @@ trait Scoring
                 $this->currentSession = session('grid.' . $row . $column);
                 if (strlen($this->currentSession) != 235) {
                     // collect suit HDSC and value 02-14 for row
-                    array_push($this->suitsRow, substr($this->currentSession,23,1));
-                    array_push($this->valuesRow, substr($this->currentSession,21,2));
+                    array_push($this->suitsRow, substr($this->currentSession, 23, 1));
+                    array_push($this->valuesRow, substr($this->currentSession, 21, 2));
                 }
 
                 // ROW SAVE AND SCORE DATA
@@ -99,8 +101,8 @@ trait Scoring
                 $this->currentSession = session('grid.' . $row . $column);
                 if (strlen($this->currentSession) != 235) {
                     // collect suit HDSC and value 02-14 for column
-                    array_push($this->suitsColumn, substr($this->currentSession,23,1));
-                    array_push($this->valuesColumn, substr($this->currentSession,21,2));
+                    array_push($this->suitsColumn, substr($this->currentSession, 23, 1));
+                    array_push($this->valuesColumn, substr($this->currentSession, 21, 2));
                 }
 
                 // COLUMN SAVE AND SCORE DATA
@@ -120,7 +122,8 @@ trait Scoring
         }
     }
 
-    public function scoreFullHand($type) {
+    public function scoreFullHand($type)
+    {
         // set initial value to 0, increment with ++ when a hand fulfills
         $this->countNothing = 0;
         $this->countPair = 0;
@@ -134,24 +137,24 @@ trait Scoring
         $this->countRoyalstraightflush = 0;
        // type is string dataRowX/dataColumnX array with suits. Used with session()->put()
        // scoreSession[0] is suits, scoreSession[1] is values
-       $this->scoreSession = session('data' . $type);
+        $this->scoreSession = session('data' . $type);
 
        // set consecutive to true
-       $this->consecutiveArray = true;
+        $this->consecutiveArray = true;
         // CREATE COPY ARRAY AND SORT VALUES
-       $this->sortedValues = $this->scoreSession[1];
-       sort($this->sortedValues);
+        $this->sortedValues = $this->scoreSession[1];
+        sort($this->sortedValues);
 
        // check if consecutive numbers
-       for ($i = 0; $i < 4; $i++) {
-           if (intval($this->sortedValues[$i+1]) != intval($this->sortedValues[$i]) + 1) {
-               $this->consecutiveArray = false;
-           }
-       }
+        for ($i = 0; $i < 4; $i++) {
+            if (intval($this->sortedValues[$i + 1]) != intval($this->sortedValues[$i]) + 1) {
+                $this->consecutiveArray = false;
+            }
+        }
 
-       if ($this->sortedValues === ["14", "01", "02", "03", "04"]) {
-           $this->consecutiveArray = true;
-       }
+        if ($this->sortedValues === ["14", "01", "02", "03", "04"]) {
+            $this->consecutiveArray = true;
+        }
        // END OF SORT
 
 
@@ -169,17 +172,12 @@ trait Scoring
                 } else {
                     session()->put('score' . $type, ['score' => 75, 'feedback' => 'STRAIGHT FLUSH']);
                     session()->put('count.straightflush', session('count.straightflush') + 1);
-                }
-            }
-            // FLUSH
-            elseif ($this->consecutiveArray == false) {
+                } // FLUSH
+            } elseif ($this->consecutiveArray == false) {
                 session()->put('score' . $type, ['score' => 20, 'feedback' => 'FLUSH']);
                 session()->put('count.flush', session('count.flush') + 1);
-            }
-        }
-
-        ///////////// AT LEAST 2 DIFFERENT SUITS /////////////
-        elseif (count(array_count_values($this->scoreSession[1])) > 1) {
+            } ///////////// AT LEAST 2 DIFFERENT SUITS /////////////
+        } elseif (count(array_count_values($this->scoreSession[1])) > 1) {
             $this->occurrencesValues = [];
             // count occurrences of each value, insert into $occurrences array
             $this->times = 0;
@@ -219,7 +217,6 @@ trait Scoring
                 } elseif (array_count_values($this->occurrencesValues)[2] == 2) {
                     session()->put('score' . $type, ['score' => 2, 'feedback' => 'PAIR']);
                     session()->put('count.pair', session('count.pair') + 1);
-
                 }
                 // CHECK FOR STRAIGHT
             } elseif ($this->consecutiveArray == true) {

@@ -5,13 +5,22 @@
     <file>.</file>
 
     <exclude-pattern>.bin</exclude-pattern>
+    <exclude-pattern>boostrap</exclude-pattern>
     <exclude-pattern>build</exclude-pattern>
     <exclude-pattern>cache</exclude-pattern>
+    <exclude-pattern>config</exclude-pattern>
     <exclude-pattern>doc</exclude-pattern>
+    <exclude-pattern>public</exclude-pattern>
     <exclude-pattern>theme</exclude-pattern>
     <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>storage</exclude-pattern>
     <exclude-pattern>database</exclude-pattern>
+    <exclude-pattern>src</exclude-pattern>
+    <exclude-pattern>storage</exclude-pattern>
+    <exclude-pattern>tests</exclude-pattern>
+    <exclude-pattern>routes</exclude-pattern>
+    <exclude-pattern>resources</exclude-pattern>
+    <exclude-pattern>node_modules</exclude-pattern>
 
     <arg name="encoding" value="utf-8"/>
     <arg name="warning-severity" value="0"/>

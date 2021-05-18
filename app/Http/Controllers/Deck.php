@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
+
 // use Joki20\Http\Controllers\CardInterface;
 
 /**
@@ -76,11 +77,13 @@ trait Deck
         '<div class="card rank14C">A <br/> &clubs;</div>'
     ];
 
-    public function deckSize(array $sessionDeck) {
+    public function deckSize(array $sessionDeck)
+    {
         return count($sessionDeck);
     }
 
-    public function returnDeck() {
+    public function returnDeck()
+    {
         return $this->deck;
     }
 }

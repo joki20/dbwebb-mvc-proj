@@ -7,12 +7,14 @@
 declare(strict_types=1);
 
 namespace Joki20\Http\Controllers;
+
 use Joki20\Http\Controllers\Deck;
 use Joki20\Models\Pokerhighscore;
 
 trait Setup
 {
     use Deck;
+
     private ?string $grid = '';
     private ?string $cells = '';
     private ?string $row = '';
@@ -20,16 +22,17 @@ trait Setup
     private ?string $currentCard = '';
     private ?string $pos = '';
 
-    public function name() {
-        return "<div class='enterName'><form method='POST' autocomplete='off'>
-                <input type='text' name='setName' placeholder='Name' minlength=3 onfocus=this.placeholder = required >
-                <input type='submit' value='GO'>
+    public function name()
+    {
+        return '<div class="enterName"><form method="POST" autocomplete="off">
+                <input type="text" name="setName" placeholder="Name" minlength=3 onfocus=this.placeholder = required >
+                <input type="submit" value="GO">
             </form></div>
-        ";
-
+        ';
     }
 
-    public function prepareSessions(): void {
+    public function prepareSessions(): void
+    {
 
         session()->put('name', $_POST['setName']);
         session()->put('points', 0);
@@ -97,13 +100,15 @@ trait Setup
         ]);
     }
 
-    public function shuffleDeck(): void {
+    public function shuffleDeck(): void
+    {
         // save grid in session
         shuffle($this->deck);
         session()->put('deck', $this->deck);
     }
 
-    public function prepareStack() {
+    public function prepareStack()
+    {
         $this->stack = '<div class="cardstack">';
         // reversed order compared to array
         foreach (session('deck') as $card) {
@@ -120,8 +125,10 @@ trait Setup
         session()->put('06', $this->stack);
     }
 
-    public function displayGrid() {
-        session()->put('totalScore',
+    public function displayGrid()
+    {
+        session()->put(
+            'totalScore',
             session('scoreRow0.score') +
             session('scoreRow1.score') +
             session('scoreRow2.score') +
@@ -186,7 +193,8 @@ trait Setup
         return $this->grid;
     }
 
-    public function placeCard(): void {
+    public function placeCard(): void
+    {
 
         // 1. remove first card in session('deck');
         $arr = session('deck');
@@ -197,32 +205,32 @@ trait Setup
         session()->put('grid.' . $pos, $currentCard);
 
         // if last card placed, write to database
-       session()->put('round', session('round') + 1);
+        session()->put('round', session('round') + 1);
     }
 
-    public function storeToDatabase() {
+    public function storeToDatabase()
+    {
         // if end of game, add game data to highscore table
-       if (session('round') == 25) {
-           // create Highscore instance
-           $highscore = new Pokerhighscore();
+        if (session('round') == 25) {
+            // create Highscore instance
+            $highscore = new Pokerhighscore();
 
-           // insert into database
-           $highscore->score = session('totalScore');
-           $highscore->player = session('name');
-           $highscore->count_nothing = session('count.nothing');
-           $highscore->count_pair = session('count.pair');
-           $highscore->count_twopairs = session('count.twopairs');
-           $highscore->count_threeofakind = session('count.threeofakind');
-           $highscore->count_straight = session('count.straight');
-           $highscore->count_flush = session('count.flush');
-           $highscore->count_fullhouse = session('count.fullhouse');
-           $highscore->count_fourofakind = session('count.fourofakind');
-           $highscore->count_straightflush = session('count.straightflush');
-           $highscore->count_royalstraightflush = session('count.royalstraightflush');
-           // insert name
-           // save to db
-           $highscore->save();
-       }
+            // insert into database
+            $highscore->score = session('totalScore');
+            $highscore->player = session('name');
+            $highscore->count_nothing = session('count.nothing');
+            $highscore->count_pair = session('count.pair');
+            $highscore->count_twopairs = session('count.twopairs');
+            $highscore->count_threeofakind = session('count.threeofakind');
+            $highscore->count_straight = session('count.straight');
+            $highscore->count_flush = session('count.flush');
+            $highscore->count_fullhouse = session('count.fullhouse');
+            $highscore->count_fourofakind = session('count.fourofakind');
+            $highscore->count_straightflush = session('count.straightflush');
+            $highscore->count_royalstraightflush = session('count.royalstraightflush');
+            // insert name
+            // save to db
+            $highscore->save();
+        }
     }
-
 }

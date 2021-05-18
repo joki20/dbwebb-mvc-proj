@@ -5,7 +5,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Joki20\Http\Controllers\PokerSquares;
-
+use Joki20\Http\Controllers\Setup;
 /**
  * Test cases for class Guess.
  */
@@ -31,4 +31,51 @@ class PokerSquaresCreateObjectTest extends TestCase
         $exp = $pokersquares->game();
         $this->assertEquals($exp, null);
     }
+
+    public function testTraitDeckName()
+    {
+        $pokersquares = new PokerSquares();
+
+        $exp = strlen($pokersquares->name());
+        $this->assertEquals($exp, 265);
+    }
+
+    public function testTraitDeckDeckSize()
+    {
+        $pokersquares = new PokerSquares();
+
+        $exp = $pokersquares->deckSize(['<div class="card rank08C">8 <br/> &clubs;</div>','<div class="card rank09C">9 <br/> &clubs;</div>',]);
+        $this->assertEquals($exp, 2);
+    }
+
+    public function testTraitDeckReturnDeck()
+    {
+        $pokersquares = new PokerSquares();
+
+        $exp = count($pokersquares->returnDeck());
+        $deck = 52;
+        $this->assertEquals($exp, 52);
+    }
+
+    public function testTraitSetupName()
+    {
+        $pokersquares = new PokerSquares();
+
+        $exp = strlen($pokersquares->name());
+        $this->assertEquals($exp, 265);
+    }
+
+    // public function testTraitSetupShuffleDeck()
+    // {
+    //     $pokersquares = new PokerSquares();
+    //
+    //     $pokersquares->shuffleDeck();
+
+        // $exp = 52;
+        // $res = count(session('deck'));
+        //
+        // $this->assertEquals($exp, 52);
+    //
+    // }
+
 }

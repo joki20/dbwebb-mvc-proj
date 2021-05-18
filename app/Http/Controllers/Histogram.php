@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
+
 use Joki20\Models\Pokerhighscore;
 
 /**
@@ -51,16 +52,16 @@ class Histogram implements HistogramInterface
         );
 
         $this->serie = [
-            ['Royal straight flush', round(($royalstraightflush/$sumAll)*100, 1) . '%', $royalstraightflush],
-            ['Straight flush', round(($straightflush/$sumAll)*100, 1) . '%', $straightflush],
-            ['Four of a kind', round(($fourofakind/$sumAll)*100, 1) . '%',$fourofakind],
-            ['Full house', round(($fullhouse/$sumAll)*100, 1) . '%',$fullhouse],
-            ['Flush', round(($flush/$sumAll)*100, 1) . '%',$flush],
-            ['Straight', round(($straight/$sumAll)*100, 1) . '%',$straight],
-            ['Three of a kind', round(($threeofakind/$sumAll)*100, 1) . '%',$threeofakind],
-            ['Two pairs', round(($twopairs/$sumAll)*100, 1) . '%',$twopairs],
-            ['Pair', round(($pair/$sumAll)*100, 1) . '%',$pair],
-            ['Nothing', round(($nothing/$sumAll)*100, 1) . '%',$nothing],
+            ['Royal straight flush', round(($royalstraightflush / $sumAll) * 100, 1) . '%', $royalstraightflush],
+            ['Straight flush', round(($straightflush / $sumAll) * 100, 1) . '%', $straightflush],
+            ['Four of a kind', round(($fourofakind / $sumAll) * 100, 1) . '%',$fourofakind],
+            ['Full house', round(($fullhouse / $sumAll) * 100, 1) . '%',$fullhouse],
+            ['Flush', round(($flush / $sumAll) * 100, 1) . '%',$flush],
+            ['Straight', round(($straight / $sumAll) * 100, 1) . '%',$straight],
+            ['Three of a kind', round(($threeofakind / $sumAll) * 100, 1) . '%',$threeofakind],
+            ['Two pairs', round(($twopairs / $sumAll) * 100, 1) . '%',$twopairs],
+            ['Pair', round(($pair / $sumAll) * 100, 1) . '%',$pair],
+            ['Nothing', round(($nothing / $sumAll) * 100, 1) . '%',$nothing],
         ];
 
         for ($hand = 0; $hand < count($this->serie); $hand++) {
