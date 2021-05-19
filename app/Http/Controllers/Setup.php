@@ -105,7 +105,7 @@ class Setup extends Deck
         session()->put('deck', $this->deck);
     }
 
-    public function prepareStack()
+    public function prepareStack(): void
     {
         $this->stack = '<div class="cardstack">';
         // reversed order compared to array
@@ -115,7 +115,6 @@ class Setup extends Deck
         $this->stack .= '</div>';
 
         session()->put('stack', $this->stack);
-
         // reverse array (top card is session('deck')[0])
         session()->put('deck', array_reverse(session('deck')));
         // insert shuffled game deck at position 06 (top right)
