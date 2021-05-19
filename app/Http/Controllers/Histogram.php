@@ -9,7 +9,7 @@ declare(strict_types=1);
 // Folder \Controllers containing classes
 namespace Joki20\Http\Controllers;
 
-use App\Models\Pokerhighscore;
+use Joki20\Models\Pokerhighscore;
 
 /**
  * Generating histogram data.

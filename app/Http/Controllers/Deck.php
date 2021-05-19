@@ -13,7 +13,7 @@ namespace Joki20\Http\Controllers;
  * Trait Deck.
  */
 
-trait Deck
+class Deck
 {
     protected ?string $stack = '';
     protected ?array $deck = [

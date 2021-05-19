@@ -11,10 +11,8 @@ namespace Joki20\Http\Controllers;
 use Joki20\Http\Controllers\Deck;
 use Joki20\Models\Pokerhighscore;
 
-trait Setup
+class Setup extends Deck
 {
-    use Deck;
-
     private string $grid = '';
     private string $cells = '';
     private string $row = '';
@@ -99,16 +97,6 @@ trait Setup
             'royalstraightflush' => 0,
         ]);
     }
-
-    public function sessionTest(): void {
-        session()->put('mySession', 'hello');
-        
-    }
-
-
-
-
-
 
     public function shuffleDeck(): void
     {

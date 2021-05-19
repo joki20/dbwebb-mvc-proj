@@ -17,11 +17,8 @@ use Joki20\Http\Controllers\Setup;
  * Class PokerSquares.
  */
 
-class PokerSquares
+class PokerSquares extends Scoring
 {
-    use Setup;
-    use Scoring;
-
     public function game() // new game
     {
         // SET NAME

@@ -12,10 +12,8 @@ use Joki20\Http\Controllers\Setup;
  * Trait Scoring;
  */
 
-trait Scoring
+class Scoring extends Setup
 {
-    use Setup;
-
     private string $currentSession = '';
     private array $suitsRow = [];
     private array $valuesRow = [];
