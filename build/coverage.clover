@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621455413">
-  <project timestamp="1621455413">
+<coverage generated="1621456184">
+  <project timestamp="1621456184">
     <file name="C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Controller.php">
       <class name="App\Http\Controllers\Controller" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -86,7 +86,7 @@
     </file>
     <file name="C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php">
       <class name="Joki20\Http\Controllers\Scoring" namespace="global">
-        <metrics complexity="59" methods="14" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="156" coveredstatements="33" elements="170" coveredelements="34"/>
+        <metrics complexity="59" methods="14" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="156" coveredstatements="13" elements="170" coveredelements="14"/>
       </class>
       <line num="30" type="method" name="setPointsSessions" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="33" type="stmt" count="1"/>
@@ -154,28 +154,28 @@
       <line num="134" type="stmt" count="0"/>
       <line num="135" type="stmt" count="0"/>
       <line num="139" type="stmt" count="0"/>
-      <line num="141" type="method" name="sortHand" visibility="public" complexity="4" crap="4" count="1"/>
-      <line num="144" type="stmt" count="1"/>
-      <line num="145" type="stmt" count="1"/>
-      <line num="146" type="stmt" count="1"/>
-      <line num="147" type="stmt" count="1"/>
-      <line num="148" type="stmt" count="1"/>
-      <line num="149" type="stmt" count="1"/>
-      <line num="150" type="stmt" count="1"/>
-      <line num="151" type="stmt" count="1"/>
-      <line num="152" type="stmt" count="1"/>
-      <line num="153" type="stmt" count="1"/>
-      <line num="154" type="stmt" count="1"/>
-      <line num="158" type="stmt" count="1"/>
-      <line num="160" type="stmt" count="1"/>
-      <line num="162" type="stmt" count="1"/>
-      <line num="163" type="stmt" count="1"/>
-      <line num="165" type="stmt" count="1"/>
-      <line num="166" type="stmt" count="1"/>
-      <line num="167" type="stmt" count="1"/>
-      <line num="171" type="stmt" count="1"/>
+      <line num="141" type="method" name="sortHand" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="144" type="stmt" count="0"/>
+      <line num="145" type="stmt" count="0"/>
+      <line num="146" type="stmt" count="0"/>
+      <line num="147" type="stmt" count="0"/>
+      <line num="148" type="stmt" count="0"/>
+      <line num="149" type="stmt" count="0"/>
+      <line num="150" type="stmt" count="0"/>
+      <line num="151" type="stmt" count="0"/>
+      <line num="152" type="stmt" count="0"/>
+      <line num="153" type="stmt" count="0"/>
+      <line num="154" type="stmt" count="0"/>
+      <line num="158" type="stmt" count="0"/>
+      <line num="160" type="stmt" count="0"/>
+      <line num="162" type="stmt" count="0"/>
+      <line num="163" type="stmt" count="0"/>
+      <line num="165" type="stmt" count="0"/>
+      <line num="166" type="stmt" count="0"/>
+      <line num="167" type="stmt" count="0"/>
+      <line num="171" type="stmt" count="0"/>
       <line num="172" type="stmt" count="0"/>
-      <line num="175" type="stmt" count="1"/>
+      <line num="175" type="stmt" count="0"/>
       <line num="179" type="method" name="scoreSameSuit" visibility="public" complexity="7" crap="56" count="0"/>
       <line num="181" type="stmt" count="0"/>
       <line num="184" type="stmt" count="0"/>
@@ -258,7 +258,7 @@
       <line num="306" type="method" name="setNotScoredYetBackToFalse" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="307" type="stmt" count="0"/>
       <line num="308" type="stmt" count="0"/>
-      <metrics loc="309" ncloc="255" classes="1" methods="14" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="156" coveredstatements="33" elements="170" coveredelements="34"/>
+      <metrics loc="309" ncloc="255" classes="1" methods="14" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="156" coveredstatements="13" elements="170" coveredelements="14"/>
     </file>
     <file name="C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Setup.php">
       <class name="Joki20\Http\Controllers\Setup" namespace="global">
@@ -378,6 +378,6 @@
       <line num="232" type="stmt" count="0"/>
       <metrics loc="233" ncloc="208" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="105" coveredstatements="87" elements="112" coveredelements="92"/>
     </file>
-    <metrics files="7" loc="781" ncloc="656" classes="5" methods="25" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="313" coveredstatements="126" elements="338" coveredelements="134"/>
+    <metrics files="7" loc="781" ncloc="656" classes="5" methods="25" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="313" coveredstatements="106" elements="338" coveredelements="114"/>
   </project>
 </coverage>

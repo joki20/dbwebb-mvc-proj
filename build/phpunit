@@ -4,20 +4,12 @@ PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
                 <input type="text" name="setName" placeholder="Name" minlength=3 onfocus=this.placeholder = required >
                 <input type="submit" value="GO">
             </form></div>
-        .....E......<p class="totalScore">Current  score: 100</p><p class="totalScore">Current  score: 100</p>.                                             21 / 21 (100%)
+        ...........<p class="totalScore">Current  score: 100</p><p class="totalScore">Current  score: 100</p>.                                              20 / 20 (100%)
 
-Time: 00:01.510, Memory: 34.00 MB
+Time: 00:01.527, Memory: 34.00 MB
 
-There was 1 error:
+OK (20 tests, 23 assertions)
 
-1) Tests\Unit\ScoringCreateObjectTest::testSortHand
-Error: Cannot access private property Joki20\Http\Controllers\Scoring::$consecutiveArray
+Generating code coverage report in Clover XML format ... done [00:00.032]
 
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\tests\Unit\ScoringCreateObjectTest.php:62
-
-ERRORS!
-Tests: 21, Assertions: 24, Errors: 1.
-
-Generating code coverage report in Clover XML format ... done [00:00.020]
-
-Generating code coverage report in HTML format ... done [00:00.233]
+Generating code coverage report in HTML format ... done [00:00.250]
