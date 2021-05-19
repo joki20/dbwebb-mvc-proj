@@ -4,39 +4,12 @@ PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
                 <input type="text" name="setName" placeholder="Name" minlength=3 onfocus=this.placeholder = required >
                 <input type="submit" value="GO">
             </form></div>
-        ....E..                                                   15 / 15 (100%)
+        ......                                                    14 / 14 (100%)
 
-Time: 00:01.226, Memory: 32.00 MB
+Time: 00:00.898, Memory: 34.00 MB
 
-There was 1 error:
+OK (14 tests, 15 assertions)
 
-1) Tests\Unit\ScoringTraitTest::testCheckFullRow
-Illuminate\Contracts\Container\BindingResolutionException: Target class [session] does not exist.
+Generating code coverage report in Clover XML format ... done [00:00.030]
 
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Container\Container.php:838
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Container\Container.php:717
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\Application.php:841
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Container\Container.php:655
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\Application.php:826
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:119
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:770
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\tests\Unit\ScoringTraitTest.php:29
-
-Caused by
-ReflectionException: Class session does not exist
-
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Container\Container.php:836
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Container\Container.php:717
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\Application.php:841
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Container\Container.php:655
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\Application.php:826
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:119
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\vendor\laravel\framework\src\Illuminate\Foundation\helpers.php:770
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\tests\Unit\ScoringTraitTest.php:29
-
-ERRORS!
-Tests: 15, Assertions: 15, Errors: 1.
-
-Generating code coverage report in Clover XML format ... done [00:00.033]
-
-Generating code coverage report in HTML format ... done [00:00.241]
+Generating code coverage report in HTML format ... done [00:00.270]

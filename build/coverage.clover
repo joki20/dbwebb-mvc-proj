@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621370530">
-  <project timestamp="1621370530">
+<coverage generated="1621410825">
+  <project timestamp="1621410825">
     <file name="C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Controller.php">
       <class name="App\Http\Controllers\Controller" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -262,7 +262,7 @@
     </file>
     <file name="C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Setup.php">
       <class name="Joki20\Http\Controllers\Setup" namespace="global">
-        <metrics complexity="18" methods="7" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="105" coveredstatements="1" elements="112" coveredelements="2"/>
+        <metrics complexity="19" methods="8" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="107" coveredstatements="1" elements="115" coveredelements="2"/>
       </class>
       <line num="25" type="method" name="name" visibility="public" complexity="1" crap="1" count="5"/>
       <line num="27" type="stmt" count="5"/>
@@ -300,84 +300,87 @@
       <line num="89" type="stmt" count="0"/>
       <line num="90" type="stmt" count="0"/>
       <line num="101" type="stmt" count="0"/>
-      <line num="103" type="method" name="shuffleDeck" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="103" type="method" name="sessionTest" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="104" type="stmt" count="0"/>
       <line num="106" type="stmt" count="0"/>
-      <line num="107" type="stmt" count="0"/>
-      <line num="108" type="stmt" count="0"/>
-      <line num="110" type="method" name="prepareStack" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="112" type="stmt" count="0"/>
-      <line num="114" type="stmt" count="0"/>
-      <line num="115" type="stmt" count="0"/>
+      <line num="113" type="method" name="shuffleDeck" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="116" type="stmt" count="0"/>
       <line num="117" type="stmt" count="0"/>
-      <line num="119" type="stmt" count="0"/>
+      <line num="118" type="stmt" count="0"/>
+      <line num="120" type="method" name="prepareStack" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="122" type="stmt" count="0"/>
+      <line num="124" type="stmt" count="0"/>
       <line num="125" type="stmt" count="0"/>
-      <line num="126" type="stmt" count="0"/>
-      <line num="128" type="method" name="displayGrid" visibility="public" complexity="8" crap="72" count="0"/>
-      <line num="130" type="stmt" count="0"/>
-      <line num="131" type="stmt" count="0"/>
+      <line num="127" type="stmt" count="0"/>
+      <line num="129" type="stmt" count="0"/>
       <line num="132" type="stmt" count="0"/>
-      <line num="133" type="stmt" count="0"/>
-      <line num="134" type="stmt" count="0"/>
       <line num="135" type="stmt" count="0"/>
       <line num="136" type="stmt" count="0"/>
-      <line num="137" type="stmt" count="0"/>
-      <line num="138" type="stmt" count="0"/>
-      <line num="139" type="stmt" count="0"/>
+      <line num="138" type="method" name="displayGrid" visibility="public" complexity="8" crap="72" count="0"/>
       <line num="140" type="stmt" count="0"/>
       <line num="141" type="stmt" count="0"/>
+      <line num="142" type="stmt" count="0"/>
+      <line num="143" type="stmt" count="0"/>
       <line num="144" type="stmt" count="0"/>
+      <line num="145" type="stmt" count="0"/>
       <line num="146" type="stmt" count="0"/>
+      <line num="147" type="stmt" count="0"/>
       <line num="148" type="stmt" count="0"/>
       <line num="149" type="stmt" count="0"/>
+      <line num="150" type="stmt" count="0"/>
       <line num="151" type="stmt" count="0"/>
-      <line num="152" type="stmt" count="0"/>
-      <line num="153" type="stmt" count="0"/>
       <line num="154" type="stmt" count="0"/>
-      <line num="155" type="stmt" count="0"/>
       <line num="156" type="stmt" count="0"/>
       <line num="158" type="stmt" count="0"/>
       <line num="159" type="stmt" count="0"/>
-      <line num="160" type="stmt" count="0"/>
       <line num="161" type="stmt" count="0"/>
+      <line num="162" type="stmt" count="0"/>
+      <line num="163" type="stmt" count="0"/>
+      <line num="164" type="stmt" count="0"/>
       <line num="165" type="stmt" count="0"/>
       <line num="166" type="stmt" count="0"/>
       <line num="168" type="stmt" count="0"/>
+      <line num="169" type="stmt" count="0"/>
       <line num="170" type="stmt" count="0"/>
-      <line num="172" type="stmt" count="0"/>
-      <line num="174" type="stmt" count="0"/>
+      <line num="171" type="stmt" count="0"/>
+      <line num="175" type="stmt" count="0"/>
       <line num="176" type="stmt" count="0"/>
+      <line num="178" type="stmt" count="0"/>
+      <line num="180" type="stmt" count="0"/>
+      <line num="182" type="stmt" count="0"/>
       <line num="184" type="stmt" count="0"/>
       <line num="186" type="stmt" count="0"/>
-      <line num="190" type="stmt" count="0"/>
-      <line num="193" type="stmt" count="0"/>
-      <line num="196" type="method" name="placeCard" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="194" type="stmt" count="0"/>
+      <line num="196" type="stmt" count="0"/>
       <line num="200" type="stmt" count="0"/>
-      <line num="201" type="stmt" count="0"/>
-      <line num="202" type="stmt" count="0"/>
-      <line num="204" type="stmt" count="0"/>
-      <line num="205" type="stmt" count="0"/>
-      <line num="208" type="stmt" count="0"/>
-      <line num="209" type="stmt" count="0"/>
-      <line num="211" type="method" name="storeToDatabase" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="203" type="stmt" count="0"/>
+      <line num="206" type="method" name="placeCard" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="210" type="stmt" count="0"/>
+      <line num="211" type="stmt" count="0"/>
+      <line num="212" type="stmt" count="0"/>
       <line num="214" type="stmt" count="0"/>
-      <line num="216" type="stmt" count="0"/>
+      <line num="215" type="stmt" count="0"/>
+      <line num="218" type="stmt" count="0"/>
       <line num="219" type="stmt" count="0"/>
-      <line num="220" type="stmt" count="0"/>
-      <line num="221" type="stmt" count="0"/>
-      <line num="222" type="stmt" count="0"/>
-      <line num="223" type="stmt" count="0"/>
+      <line num="221" type="method" name="storeToDatabase" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="224" type="stmt" count="0"/>
-      <line num="225" type="stmt" count="0"/>
       <line num="226" type="stmt" count="0"/>
-      <line num="227" type="stmt" count="0"/>
-      <line num="228" type="stmt" count="0"/>
       <line num="229" type="stmt" count="0"/>
       <line num="230" type="stmt" count="0"/>
+      <line num="231" type="stmt" count="0"/>
+      <line num="232" type="stmt" count="0"/>
       <line num="233" type="stmt" count="0"/>
+      <line num="234" type="stmt" count="0"/>
       <line num="235" type="stmt" count="0"/>
-      <metrics loc="236" ncloc="211" classes="1" methods="7" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="105" coveredstatements="1" elements="112" coveredelements="2"/>
+      <line num="236" type="stmt" count="0"/>
+      <line num="237" type="stmt" count="0"/>
+      <line num="238" type="stmt" count="0"/>
+      <line num="239" type="stmt" count="0"/>
+      <line num="240" type="stmt" count="0"/>
+      <line num="243" type="stmt" count="0"/>
+      <line num="245" type="stmt" count="0"/>
+      <metrics loc="246" ncloc="221" classes="1" methods="8" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="107" coveredstatements="1" elements="115" coveredelements="2"/>
     </file>
-    <metrics files="7" loc="789" ncloc="664" classes="5" methods="25" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="313" coveredstatements="7" elements="338" coveredelements="10"/>
+    <metrics files="7" loc="799" ncloc="674" classes="5" methods="26" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="315" coveredstatements="7" elements="341" coveredelements="10"/>
   </project>
 </coverage>

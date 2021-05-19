@@ -100,6 +100,16 @@ trait Setup
         ]);
     }
 
+    public function sessionTest(): void {
+        session()->put('mySession', 'hello');
+        
+    }
+
+
+
+
+
+
     public function shuffleDeck(): void
     {
         // save grid in session
