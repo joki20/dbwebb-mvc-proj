@@ -23,7 +23,6 @@ class Scoring extends Setup
     private array $sortedValues = [];
     private bool $consecutiveArray = false;
     private int $times;
-    private array $occurrencesSuits = [];
     private array $occurrencesValues = [];
     private bool $notScoredYet;
 
@@ -52,7 +51,8 @@ class Scoring extends Setup
         ]);
     }
 
-    public function checkFullRow(): void {
+    public function checkFullRow(): void
+    {
         // LOOP FOR EACH ROW
         for ($row = 0; $row < 5; $row++) {
             for ($column = 0; $column < 5; $column++) {
@@ -80,10 +80,9 @@ class Scoring extends Setup
                     $this->fourOfaKind('Row' . $row);
                     $this->fullHouse('Row' . $row);
                     $this->threeOfAKind('Row' . $row);
-                    $this->twoPairs('Row' . $row);
-                    $this->pair('Row' . $row);
-                    $this->straight('Row' . $row);
-                    $this->nothing('Row' . $row);
+                    $this->twoPairsOrPair('Row' . $row);
+                    $this->straightOrNothing('Row' . $row);
+
                     // before next loop, reset to false
                     $this->setNotScoredYetBackToFalse();
                 }
@@ -96,7 +95,8 @@ class Scoring extends Setup
         }
     }
 
-    public function checkFullColumn(): void {
+    public function checkFullColumn(): void
+    {
         // LOOP FOR EACH COLUMN
         for ($column = 0; $column < 5; $column++) {
             for ($row = 0; $row < 5; $row++) {
@@ -122,10 +122,8 @@ class Scoring extends Setup
                     $this->fourOfaKind('Column' . $column);
                     $this->fullHouse('Column' . $column);
                     $this->threeOfAKind('Column' . $column);
-                    $this->twoPairs('Column' . $column);
-                    $this->pair('Column' . $column);
-                    $this->straight('Column' . $column);
-                    $this->nothing('Column' . $column);
+                    $this->twoPairsOrPair('Column' . $column);
+                    $this->straightOrNothing('Column' . $column);
                     // before next loop, reset to false
                     $this->setNotScoredYetBackToFalse();
                 }
@@ -174,14 +172,14 @@ class Scoring extends Setup
 
         return $this->sortedValues;
        // END OF SORT
-   }
+    }
 
-   public function scoreSameSuit($type)
-   {
-       if ($this->notScoredYet == true) {
-           // ///////////// SAME SUIT /////////////
-           // how many different suits. 1 means all are same
-           if (count(array_count_values($this->scoreSession[0])) == 1) {
+    public function scoreSameSuit($type)
+    {
+        if ($this->notScoredYet == true) {
+            // ///////////// SAME SUIT /////////////
+            // how many different suits. 1 means all are same
+            if (count(array_count_values($this->scoreSession[0])) == 1) {
                 // if straight
                 if ($this->consecutiveArray == true) {
                     // ROYAL STRAIGHT FLUSH 10-A
@@ -204,7 +202,8 @@ class Scoring extends Setup
         }
     }
 
-    public function checkValueOccurrence(): void {
+    public function checkValueOccurrence(): void
+    {
         if ($this->notScoredYet == true) {
             if (count(array_count_values($this->scoreSession[1])) > 1) {
                 $this->occurrencesValues = [];
@@ -223,7 +222,8 @@ class Scoring extends Setup
         }
     }
 
-    public function fourOfAKind($type): void {
+    public function fourOfAKind($type): void
+    {
         if ($this->notScoredYet == true) {
             // 4 OF A KIND
             if (in_array(4, $this->occurrencesValues)) {
@@ -233,7 +233,8 @@ class Scoring extends Setup
             }
         }
     }
-    public function fullHouse($type): void {
+    public function fullHouse($type): void
+    {
         if ($this->notScoredYet == true) {
             // FULL HOUSE
             if (in_array(3, $this->occurrencesValues) && in_array(2, $this->occurrencesValues)) {
@@ -244,7 +245,8 @@ class Scoring extends Setup
         }
     }
 
-    public function threeOfAKind($type): void {
+    public function threeOfAKind($type): void
+    {
         if ($this->notScoredYet == true) {
             // 3 OF A KIND
             if (in_array(3, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
@@ -255,7 +257,8 @@ class Scoring extends Setup
         }
     }
 
-    public function twoPairs($type): void {
+    public function twoPairsOrPair($type): void
+    {
         if ($this->notScoredYet == true) {
             // 2 PAIRS OR 1 PAIR
             if (in_array(2, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
@@ -267,9 +270,8 @@ class Scoring extends Setup
                 }
             }
         }
-    }
 
-    public function pair($type): void {
+        // PAIR
         if ($this->notScoredYet == true) {
             // 2 PAIRS OR 1 PAIR
             if (in_array(2, $this->occurrencesValues) && in_array(1, $this->occurrencesValues)) {
@@ -283,7 +285,8 @@ class Scoring extends Setup
         }
     }
 
-    public function straight($type): void {
+    public function straightOrNothing($type): void
+    {
         if ($this->notScoredYet == true) {
             // CHECK FOR STRAIGHT
             if ($this->consecutiveArray == true) {
@@ -292,9 +295,7 @@ class Scoring extends Setup
                 $this->notScoredYet = false;
             }
         }
-    }
 
-    public function nothing($type): void {
         if ($this->notScoredYet == true) {
             // NO POINTS
             session()->put('score' . $type, ['score' => 0, 'feedback' => 'NOTHING']);
@@ -303,7 +304,8 @@ class Scoring extends Setup
         }
     }
 
-    public function setNotScoredYetBackToFalse(): void {
+    public function setNotScoredYetBackToFalse(): void
+    {
         $this->notScoredYet = true;
     }
 }
