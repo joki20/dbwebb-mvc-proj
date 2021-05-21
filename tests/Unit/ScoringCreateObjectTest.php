@@ -5,9 +5,9 @@ namespace Tests\Unit;
 
 // use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
-use Joki20\Http\Controllers\PokerSquares;
-use Joki20\Http\Controllers\Setup;
-use Joki20\Http\Controllers\Scoring;
+use App\Http\Controllers\PokerSquares;
+use App\Http\Controllers\Setup;
+use App\Http\Controllers\Scoring;
 use Illuminate\Support\Facades\Session;
 
 /**

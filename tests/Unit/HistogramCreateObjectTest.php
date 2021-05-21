@@ -4,7 +4,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Joki20\Http\Controllers\Histogram;
+use App\Http\Controllers\Histogram;
 
 /**
  * Test cases for class Guess.
