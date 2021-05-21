@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 // Folder \Controllers containing classes
-namespace Joki20\Http\Controllers;
+namespace App\Http\Controllers;
 
-use Joki20\Http\Controllers\Scoring;
-use Joki20\Http\Controllers\Setup;
+use App\Http\Controllers\Scoring;
+use App\Http\Controllers\Setup;
 
 /**
  * Class PokerSquares.

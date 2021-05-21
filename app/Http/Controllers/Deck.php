@@ -7,7 +7,7 @@
 declare(strict_types=1);
 
 // Folder \Controllers containing classes
-namespace Joki20\Http\Controllers;
+namespace App\Http\Controllers;
 
 /**
  * Trait Deck.

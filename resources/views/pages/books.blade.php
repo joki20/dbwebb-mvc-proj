@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-use Joki20\Models\Book;
+use App\Models\Book;
 
 // Book class
 
