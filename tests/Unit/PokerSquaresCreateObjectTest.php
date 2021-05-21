@@ -3,7 +3,7 @@
 // php artisan test
 namespace Tests\Unit;
 
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 use Joki20\Http\Controllers\PokerSquares;
 use Joki20\Http\Controllers\Setup;
 /**
@@ -55,18 +55,4 @@ class PokerSquaresCreateObjectTest extends TestCase
         $exp = strlen($pokersquares->name());
         $this->assertEquals($exp, 265);
     }
-
-    // public function testTraitSetupShuffleDeck()
-    // {
-    //     $pokersquares = new PokerSquares();
-    //
-    //     $pokersquares->shuffleDeck();
-
-        // $exp = 52;
-        // $res = count(session('deck'));
-        //
-        // $this->assertEquals($exp, 52);
-    //
-    // }
-
 }
