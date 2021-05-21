@@ -13,8 +13,8 @@ use Joki20\Models\Pokerhighscore;
 
 class Setup extends Deck
 {
-    private string $grid = '';
-    private string $cells = '';
+    private $grid = '';
+    private $cells = '';
 
     public function name()
     {

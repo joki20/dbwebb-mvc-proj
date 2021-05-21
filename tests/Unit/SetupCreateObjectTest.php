@@ -5,7 +5,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Joki20\Http\Controllers\PokerSquares;
-use Joki20\Http\Controllers\Setup;
 /**
  * Test cases for class Guess.
  */
