@@ -15,4 +15,7 @@
     </testsuite>
   </testsuites>
   <logging/>
+  <php>
+  <env name="APP_ENV" value="testing" force="true"/>
+  </php>
 </phpunit>
