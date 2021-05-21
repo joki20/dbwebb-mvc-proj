@@ -15,8 +15,8 @@ namespace Joki20\Http\Controllers;
 
 class Deck
 {
-    protected string $stack = '';
-    protected array $deck = [
+    protected $stack = '';
+    protected $deck = [
         /* hearts */
         '<div class="card rank02H">2 <br/> &hearts;</div>',
         '<div class="card rank03H">3 <br/> &hearts;</div>',

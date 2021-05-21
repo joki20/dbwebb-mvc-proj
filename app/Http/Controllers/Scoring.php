@@ -15,17 +15,17 @@ use Joki20\Http\Controllers\Setup;
 
 class Scoring extends Setup
 {
-    private string $currentSession = '';
-    private array $suitsRow = [];
-    private array $valuesRow = [];
-    private array $suitsColumn = [];
-    private array $valuesColumn = [];
-    private array $scoreSession = [];
-    private array $sortedValues = [];
-    private bool $consecutiveArray = false;
-    private int $times;
-    private array $occurrencesValues = [];
-    private bool $notScoredYet;
+    private $currentSession = '';
+    private $suitsRow = [];
+    private $valuesRow = [];
+    private $suitsColumn = [];
+    private $valuesColumn = [];
+    private $scoreSession = [];
+    private $sortedValues = [];
+    private $consecutiveArray = false;
+    private $times;
+    private $occurrencesValues = [];
+    private $notScoredYet;
 
     public function setPointsSessions(): void
     {

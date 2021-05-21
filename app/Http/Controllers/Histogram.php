@@ -14,7 +14,7 @@ use Joki20\Models\Pokerhighscore;
 class Histogram implements HistogramInterface
 {
     private $serie = [];
-    private int $differentHands;
+    private $differentHands;
 
     /**
     * Get the serie.
