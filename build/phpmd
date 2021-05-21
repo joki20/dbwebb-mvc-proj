@@ -1,2 +1,0 @@
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Histogram.php:30	Avoid using static access to class '\Joki20\Models\Pokerhighscore' in method 'getSerie'.
-C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:15	The class Scoring has an overall complexity of 57 which is very high. The configured complexity threshold is 50.
