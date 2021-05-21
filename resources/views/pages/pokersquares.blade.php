@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\PokerSquares;
+use Joki20\Http\Controllers\PokerSquares;
 
 ?>
 

@@ -31,7 +31,7 @@ Route::get('/hello-world-view', function () {
         'message' => "Hello World from within a view"
     ]);
 });
-// resources/views/dice.blade.php
+
 // after ::class is name of function within class Dice
 Route::get('/', function () {
     return view('home');

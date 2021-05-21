@@ -6,8 +6,8 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\Histogram;
-use App\Models\Pokerhighscore; // database
+use Joki20\Http\Controllers\Histogram;
+use Joki20\Models\Pokerhighscore; // database
 
 ?>
 

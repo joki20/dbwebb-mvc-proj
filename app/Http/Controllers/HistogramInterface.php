@@ -4,7 +4,7 @@
  * A interface for a classes supporting histogram reports.
  */
 
-namespace App\Http\Controllers;
+namespace Joki20\Http\Controllers;
 
 interface HistogramInterface
 {

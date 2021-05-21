@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace Joki20\Http\Controllers;
 
-use App\Http\Controllers\Deck;
-use App\Models\Pokerhighscore;
+use Joki20\Http\Controllers\Deck;
+use Joki20\Models\Pokerhighscore;
 
 /**
  * Class Setup;

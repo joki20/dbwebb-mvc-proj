@@ -3,8 +3,8 @@
 // php artisan test
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
-use App\Http\Controllers\Histogram;
+use Tests\TestCase;
+use Joki20\Http\Controllers\Histogram;
 
 /**
  * Test cases for class Guess.
