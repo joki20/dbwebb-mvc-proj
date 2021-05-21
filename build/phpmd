@@ -1,0 +1,4 @@
+C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Histogram.php:26	Avoid using static access to class '\Joki20\Models\Pokerhighscore' in method 'getSerie'.
+C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:16	The class Scoring has 21 fields. Consider redesigning Scoring to keep the number of fields under 15.
+C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:16	The class Scoring has an overall complexity of 57 which is very high. The configured complexity threshold is 50.
+C:\cygwin64\home\johan\dbwebb-kurser\mvc\me\proj\app\Http\Controllers\Scoring.php:38	Avoid excessively long variable names like $countRoyalstraightflush. Keep variable name length under 20.
