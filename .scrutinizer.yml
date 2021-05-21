@@ -2,8 +2,7 @@ imports:
     - php
 
 filter:
-    paths: ["app/Models/", "app/Http/Controllers/", "routes/web.php"]
-    excluded_paths: [vendor, test, database]
+    excluded_paths: [vendor, test, build, database]
 
 build:
     project_setup:

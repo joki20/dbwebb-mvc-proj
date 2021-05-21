@@ -1,9 +1,5 @@
 <?php
 
-/*
-* Card class
-*/
-
 declare(strict_types=1);
 
 // Folder \Controllers containing classes

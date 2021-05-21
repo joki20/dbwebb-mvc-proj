@@ -1,15 +1,15 @@
 <?php
 
-/*
-* Setup trait
-*/
-
 declare(strict_types=1);
 
 namespace Joki20\Http\Controllers;
 
 use Joki20\Http\Controllers\Deck;
 use Joki20\Models\Pokerhighscore;
+
+/**
+ * Class Setup;
+ */
 
 class Setup extends Deck
 {

@@ -1,10 +1,11 @@
 <?php
 
-namespace Joki20\Http\Controllers;
-
 /**
  * A interface for a classes supporting histogram reports.
  */
+
+namespace Joki20\Http\Controllers;
+
 interface HistogramInterface
 {
     /**

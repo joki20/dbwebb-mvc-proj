@@ -9,8 +9,9 @@ namespace Joki20\Http\Controllers;
 use Joki20\Http\Controllers\Setup;
 
 /**
- * Trait Scoring;
+ * Class Scoring;
  */
+
 
 class Scoring extends Setup
 {
