@@ -26,6 +26,16 @@ class Scoring extends Setup
     private $times;
     private $occurrencesValues = [];
     private $notScoredYet;
+    private $countNothing;
+    private $countPair;
+    private $countTwopairs;
+    private $countThreeofakind;
+    private $countStraight;
+    private $countFlush;
+    private $countFullhouse;
+    private $countFourofakind;
+    private $countStraightflush;
+    private $countRoyalstraightflush;
 
     public function setPointsSessions(): void
     {
