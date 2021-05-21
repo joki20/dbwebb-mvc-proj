@@ -20,7 +20,7 @@ class Scoring extends Setup
     private $valuesRow = [];
     private $suitsColumn = [];
     private $valuesColumn = [];
-    private $scoreSession = [];
+    private $scoreSession;
     private $sortedValues = [];
     private $consecutiveArray = false;
     private $times;

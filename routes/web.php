@@ -3,11 +3,6 @@
 // classes within \Controllers
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloWorldController;
-// use Joki20\Http\Controllers\Dice;
-// use Joki20\Http\Controllers\DiceHand;
-// use Joki20\Http\Controllers\Game21;
-// use Joki20\Http\Controllers\Yatzy;
-// use Joki20\Models\Books;
 
 /*
 |--------------------------------------------------------------------------
