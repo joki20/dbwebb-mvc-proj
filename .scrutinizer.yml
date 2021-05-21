@@ -15,6 +15,9 @@ build:
                     version: 7.4
         coverage:
             tests:
+                before:
+                    - cp .env.scrutinizer .env
+                    - php artisan key:generate
                 override:
                     - command: make phpunit
                       coverage:
