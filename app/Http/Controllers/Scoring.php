@@ -35,7 +35,7 @@ class Scoring extends Setup
     private $countFullhouse;
     private $countFourofakind;
     private $countStraightflush;
-    private $countRoyalstraightflush;
+    private $countRoyalflush;
 
     public function setPointsSessions(): void
     {
@@ -159,7 +159,7 @@ class Scoring extends Setup
         $this->countFullhouse = 0;
         $this->countFourofakind = 0;
         $this->countStraightflush = 0;
-        $this->countRoyalstraightflush = 0;
+        $this->countRoyalflush = 0;
         $this->consecutiveArray = false;
 
        // type is string dataRowX/dataColumnX array with suits. Used with session()->put()
