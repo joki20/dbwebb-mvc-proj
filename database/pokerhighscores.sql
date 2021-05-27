@@ -1,12 +1,15 @@
+drop database if exists joki20;
+create database joki20;
+
 use joki20;
 
 --
 -- Pokerhighscores table
--- 
+--
 DROP TABLE IF EXISTS pokerhighscores;
 CREATE TABLE IF NOT EXISTS pokerhighscores
 (
-    id integer not null auto_increment primary key, 
+    id integer not null auto_increment primary key,
     player char(30) not null,
     score integer default 0,
     count_nothing integer default 0,
@@ -21,7 +24,6 @@ CREATE TABLE IF NOT EXISTS pokerhighscores
     count_royalstraightflush integer default 0
 );
 -- empty table
--- DELETE FROM pokerhighscores;
+DELETE FROM pokerhighscores;
 
 select * from pokerhighscores;
-
