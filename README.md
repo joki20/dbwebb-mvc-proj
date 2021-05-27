@@ -136,7 +136,7 @@ This creates a directory dbwebb-mvc-proj in that folder, containing all the file
 
 4. Rename file env.example to .env
 
-5. Run file database/pokerhighscores.sql in MySQL Workbench as 'root' user (no password) in order to setup the database and its table. It will create a database called 'joki20'. These details can be found in the .env file
+5. Start MySQL Workbench as 'root' user, no password and port 3306. These details can be found in the .env file. Run the file database/pokerhighscores.sql in order to setup the database and its table. It will create a database called 'joki20'.
 
 6. You might have to run the command **php artisan key:generate**
 
