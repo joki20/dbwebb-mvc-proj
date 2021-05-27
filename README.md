@@ -83,6 +83,9 @@ You have a grid consisting of 5x5 empty cells. Each turn a new card in the deck 
 <td>Two cards with same value</td>
 </tr>
 
+</tbody>
+</table>
+
 For a hand you can only score one of above. For example, If you have four of a kind, you will not also score for three of a kind.
 
 ## Highscore
@@ -123,7 +126,7 @@ Check that it works by typing **make --version**
 
 1. Make sure XAMPP is running on port 8080 with MySQL.
 
-2. Click menu option 'Code' and copy the HTTPS or SSH link to this git and then type either of the following inside folder C:/xampp/htdocs folder:
+2. Click menu option 'Code' and copy the HTTPS or SSH link to this git and then type either of the following inside folder C:/xampp/htdocs in your terminal:
 * **git clone https://github.com/joki20/dbwebb-mvc-proj.git**
 * **git clone git@github.com:libgit2/libgit2.git**
 
